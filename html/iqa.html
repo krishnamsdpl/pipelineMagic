@@ -5,42 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Sample HTML Page</title>
     <style>
-        div.a {
-            line-height: normal;
-        }
-
-        div.b {
-            line-height: 1.6;
-        }
-
-        div.c {
-            line-height: 80%;
-        }
-
-        div.d {
-            line-height: 200%;
-        }
-
-        .vertical-menu {
-            width: 200px;
-        }
-
-        .vertical-menu a {
-            background-color: #eee;
-            color: black;
-            display: block;
-            padding: 12px;
-            text-decoration: none;
-        }
-
-        .vertical-menu a:hover {
-            background-color: #ccc;
-        }
-
-        .vertical-menu a.active {
-            background-color: #04AA6D;
-            color: white;
-        }
         body {
             font-family: 'Arial', sans-serif;
             margin: 20px;
@@ -53,11 +17,6 @@
             border: 1px solid #ddd;
             margin-bottom: 20px;
         }    
-        body {
-            font-family: 'Arial', sans-serif;
-            margin: 20px;
-        }
-
         p {
             margin-bottom: 15px;
             line-height: 1.5;
@@ -71,13 +30,67 @@
             background-color: #ffffcc; /* Highlight color */
             padding: 2px 5px;
         }
-    </style>
+        body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+    }
+
+    header {
+      background-color: #333;
+      color: white;
+      padding: 10px;
+      text-align: center;
+    }
+
+    nav {
+      float: left;
+      width: 20%;
+      background-color: #f1f1f1;
+      padding: 15px;
+      box-sizing: border-box;
+    }
+
+    nav a {
+      display: block;
+      padding: 10px;
+      text-decoration: none;
+      color: #333;
+      margin-bottom: 5px;
+      border-radius: 5px;
+      background-color: #ddd;
+      transition: background-color 0.3s;
+    }
+
+    nav a:hover {
+      background-color: #bbb;
+    }
+
+    section {
+      float: left;
+      width: 80%;
+      padding: 20px;
+      box-sizing: border-box;
+    }
+</style>
 </head>
 <body>
-<div class="vertical-menu">
-    <a href="./iqa.html">IQA</a>
-    <a href="./index.html">Home</a>
-</div>
+    <nav>
+        <a href="index.html">Home</a>
+        <a href="./azureDevOps.html">AzureDevOps</a> 
+        <a href="./aks.html">AKS</a> 
+        <a href="./azure.html">Azure</a> 
+        <a href="./terrafrom.html">Terrafrom</a> 
+        <a href="./script.html">Scripting</a>
+        <a href="./iqa.html">IQA</a>
+        <a href="./latest-iqa.html">Latest IQA</a>
+          
+      </nav>
+    
+      <section>
+      <h2 id="iqa">IQA</h2>
+    
+
 
 <div class="leftmeu">
     <h1>What is the difference between a variable and a variable group?</h1>
@@ -155,6 +168,7 @@
         &lt;command&gt;: Replace this with the command you want to run inside the pod.
     </p>
 </div>
+</section>
 <footer>
     <a href="./index.html">Home</a></footer>
 </body>
