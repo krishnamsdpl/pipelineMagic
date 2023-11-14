@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sample HTML Page</title>
+    <style>
+        div.a {
+            line-height: normal;
+        }
+
+        div.b {
+            line-height: 1.6;
+        }
+
+        div.c {
+            line-height: 80%;
+        }
+
+        div.d {
+            line-height: 200%;
+        }
+
+        .vertical-menu {
+            width: 200px;
+        }
+
+        .vertical-menu a {
+            background-color: #eee;
+            color: black;
+            display: block;
+            padding: 12px;
+            text-decoration: none;
+        }
+
+        .vertical-menu a:hover {
+            background-color: #ccc;
+        }
+
+        .vertical-menu a.active {
+            background-color: #04AA6D;
+            color: white;
+        }
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
+        code {
+            display: block;
+            white-space: pre-wrap;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }    
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 20px;
+        }
+
+        p {
+            margin-bottom: 15px;
+            line-height: 1.5;
+        }
+
+        .indent {
+            text-indent: 1.5em; /* You can adjust the indentation as needed */
+        }
+
+        .highlight {
+            background-color: #ffffcc; /* Highlight color */
+            padding: 2px 5px;
+        }
+    </style>
+</head>
+<body>
+<div class="vertical-menu">
+    <a href="./iqa.html">IQA</a>
+    <a href="./index.html">Home</a>
+</div>
+
+<div class="leftmeu">
+    <h1>What is the difference between a variable and a variable group?</h1>
+    <div class="a">
+        <p>
+            <strong>Variables:</strong><br>
+            Scope: Variables are defined at the pipeline level. They are specific to a single pipeline and can be used within
+            that pipeline and its stages, jobs, and tasks.<br>
+            Syntax:<br>
+            variables:<br>
+            myVariable: 'someValue'<br><br>
+            <strong>Variable Groups:</strong><br>
+            Scope: Variable groups are defined at the project or organization level. They can be used across multiple
+            pipelines within the same project or across projects in the organization.<br>
+            Syntax:<br>
+            variables:<br>
+            - group: 'MyVariableGroup'
+        </p>
+    </div>
+
+    <h1>What is Azure storage?</h1>
+    <p>
+        An Azure storage account contains all of your Azure Storage data objects, including blobs, file shares,
+        queues, tables, and disks. The storage account provides a unique namespace for your Azure Storage data that's
+        accessible from anywhere in the world over HTTP or HTTPS. Data in your storage account is durable and highly
+        available, secure, and massively scalable.
+    </p>
+
+    <h1>Managing Containers:</h1>
+    <ul>
+        <li>docker run: Creates and starts a container from an image.</li>
+        <li>docker ps: Lists running containers.</li>
+        <li>docker ps -a: Lists all containers (including stopped ones).</li>
+        <li>docker start &lt;container-id&gt;: Starts a stopped container.</li>
+        <li>docker stop &lt;container-id&gt;: Stops a running container.</li>
+        <li>docker rm &lt;container-id&gt;: Removes a container</li>
+        <li>docker exec -it &lt;container-id&gt; &lt;command&gt;: Runs a command inside a running container.</li>
+    </ul>
+
+    <h1>How to expose a service in Kubernetes with a load balancer and associate it with a public DNS address</h1>
+    <ul>
+        <li>Create a Deployment:</li>
+        <li>Create a Service:</li>
+        <li>(Optional) Create an Ingress Resource:</li>
+    </ul>
+    <code>
+        apiVersion: networking.k8s.io/v1
+        kind: Ingress
+        metadata:
+          name: your-app-ingress
+        spec:
+          rules:
+          - host: your-public-dns.com
+            http:
+              paths:
+              - path: /
+                pathType: Prefix
+                backend:
+                  service:
+                    name: your-app-service
+                    port:
+                      number: 80
+        </code>
+    <ul>
+        <li>(Optional) Provision a LoadBalancer:</li>
+    </ul>
+
+    <h1>How to do pod deploying in k8s</h1>
+    <code>
+        kubectl exec -it my-pod -- /bin/sh
+    </code>
+    <p class="indent">
+        -it: This option is used to open an interactive terminal.<br>
+        &lt;pod-name&gt;: Replace this with the name of the pod in which you want to execute the command.<br>
+        &lt;command&gt;: Replace this with the command you want to run inside the pod.
+    </p>
+</div>
+<footer>
+    <a href="./index.html">Home</a></footer>
+</body>
+</html>

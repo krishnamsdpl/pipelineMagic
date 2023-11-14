@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>DevOps Engineer</title> 
+    <header>
+    <h1>Power shell Script</h1>
+    </header>
+    <style>
+      div.a {
+          line-height: normal;
+      }
+
+      div.b {
+          line-height: 1.6;
+      }
+
+      div.c {
+          line-height: 80%;
+      }
+
+      div.d {
+          line-height: 200%;
+      }
+
+      .vertical-menu {
+          width: 200px;
+      }
+
+      .vertical-menu a {
+          background-color: #eee;
+          color: black;
+          display: block;
+          padding: 12px;
+          text-decoration: none;
+      }
+
+      .vertical-menu a:hover {
+          background-color: #ccc;
+      }
+
+      .vertical-menu a.active {
+          background-color: #04AA6D;
+          color: white;
+      }
+      body {
+          font-family: 'Arial', sans-serif;
+          margin: 20px;
+      }
+      code {
+          display: block;
+          white-space: pre-wrap;
+          background-color: #f4f4f4;
+          padding: 10px;
+          border: 1px solid #ddd;
+          margin-bottom: 20px;
+      }    
+      body {
+          font-family: 'Arial', sans-serif;
+          margin: 20px;
+      }
+
+      p {
+          margin-bottom: 15px;
+          line-height: 1.5;
+      }
+
+      .indent {
+          text-indent: 1.5em; /* You can adjust the indentation as needed */
+      }
+
+      .highlight {
+          background-color: #ffffcc; /* Highlight color */
+          padding: 2px 5px;
+      }
+  </style>
+  </head>
+
+  <body> 
+    <h1>Create a new text file</h1> 
+    New-Item -ItemType File -Path $filePath -Force
+
+    <h1>Create a Directory:</h1>
+    New-Item -ItemType Directory -Path C:\NewFolder
+    <h1>Copy Files:</h1>
+    Copy-Item -Path C:\Source\File.txt -Destination C:\Destination\
+    Copy-Item -Path C:\Users\LENOVO\Documents\projects\adkts\html\powershell\powershell.html -Destination C:\Users\LENOVO\Documents\projects\adkts\html 
+
+
+    <br><br>
+    <a href="./index.html">Home</a>
+  </body>
+</html>

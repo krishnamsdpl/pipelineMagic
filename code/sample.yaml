@@ -1,0 +1,122 @@
+trigger:
+  branches:
+    exclude:
+      - feature/*
+
+pr:
+  branches:
+    include:
+      - feature/*
+
+stages:
+- stage: Build
+  displayName: 'Build Stage'
+  jobs:
+    - job: BuildJob
+      displayName: 'Build Job'
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+        - task: UsePythonVersion@0
+          inputs:
+            versionSpec: '3.x'
+            addToPath: true
+
+        - script: |
+            echo "Building the project..."
+            # Add commands to build your project here
+          displayName: 'Build'
+
+- stage: Release
+  displayName: 'Release Stage'
+  jobs:
+    - job: DeployJob
+      displayName: 'Deploy Job'
+      pool:
+        vmImage: 'ubuntu-latest'
+      steps:
+        - task: UsePythonVersion@0
+          inputs:
+            versionSpec: '3.x'
+            addToPath: true
+
+        - script: |
+            echo "Deploying the application..."
+            # Add commands to deploy your application here
+          displayName: 'Deploy'
+
+
+================================================================================================
+
+Certainly! Below is an example of a YAML pipeline that includes stages, jobs, steps, and scripts for both build and release pipeline of a .NET application
+
+
+trigger:
+  branches:
+    exclude:
+      - feature/*
+
+pr:
+  branches:
+    include:
+      - feature/*
+
+stages:
+- stage: Build
+  displayName: 'Build Stage'
+  jobs:
+    - job: BuildJob
+      displayName: 'Build Job'
+      pool:
+        vmImage: 'windows-latest'
+      steps:
+        - task: UseDotNet@2
+          inputs:
+            packageType: sdk
+            version: '3.x'
+            installationPath: $(Agent.ToolsDirectory)/dotnet
+
+        - script: dotnet restore
+          displayName: 'Restore Dependencies'
+
+        - script: dotnet build --configuration Release --output $(Build.ArtifactStagingDirectory)
+          displayName: 'Build'
+
+        - task: PublishBuildArtifacts@1
+          displayName: 'Publish Artifact'
+          inputs:
+            PathtoPublish: '$(Build.ArtifactStagingDirectory)'
+            ArtifactName: 'drop'
+
+- stage: Release
+  displayName: 'Release Stage'
+  jobs:
+    - job: DeployJob
+      displayName: 'Deploy Job'
+      pool:
+        vmImage: 'windows-latest'
+      steps:
+        - task: DownloadBuildArtifacts@0
+          displayName: 'Download Artifact'
+          inputs:
+            buildType: 'current'
+            downloadType: 'single'
+            artifactName: 'drop'
+            downloadPath: '$(System.ArtifactsDirectory)'
+
+        - script: 'dotnet publish -c Release -o $(build.artifactStagingDirectory)/publish'
+          displayName: 'Publish Application'
+
+        - task: CopyFiles@2
+          displayName: 'Copy Files to: $(build.artifactStagingDirectory)/publish'
+          inputs:
+            SourceFolder: '$(System.ArtifactsDirectory)/drop'
+            Contents: '**'
+            TargetFolder: '$(build.artifactStagingDirectory)/publish'
+
+        - task: PublishBuildArtifacts@1
+          displayName: 'Publish Artifact'
+          inputs:
+            PathtoPublish: '$(build.artifactStagingDirectory)/publish'
+            ArtifactName: 'drop'
+==========================================================================================================

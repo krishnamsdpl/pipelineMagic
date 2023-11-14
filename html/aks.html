@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html> 
+  <head>
+    <title>DevOps Engineer</title> 
+    <header>
+    <h1>AKS</h1>
+    </header>
+    <style>
+      body {
+        font-family: 'Calibri (Body)',  sans-serif;
+        margin: 20px;
+      }
+  
+      p {
+        font-size: 16px;
+        line-height: 1.5;
+        color: #333;
+      }
+    </style>
+  </head>
+  <body>
+  <h1>1.What is Kubernetes?</h1>
+  Answer: Kubernetes is an open-source container orchestration platform for automating the deployment, scaling, and management of containerized applications.
+  <h1>2.Explain the key components of Kubernetes architecture.</h1>
+  <p><strong>Key components include:</strong></p>
+<ul>
+  <li><strong>Master Node:</strong> Manages and controls the cluster.</li>
+  <li><strong>Node/Minion:</strong> Worker machines where containers are deployed.</li>
+  <li><strong>Pod:</strong> Smallest deployable unit, containing one or more containers.</li>
+  <li><strong>Service:</strong> Network abstraction to expose a set of pods.</li>
+  <li><strong>ReplicaSet:</strong> Ensures a specified number of replicas for a pod are running.</li>
+  <li><strong>Deployment:</strong> Manages updates to applications.</li>
+</ul>
+
+<h1>3.What is a Deployment in Kubernetes?</h1>
+
+<p>Answer: A Deployment is a resource object in Kubernetes that provides declarative updates to applications. It allows you to describe an application’s life cycle, such as which images to use for the app, the number of pod replicas, and the way to update them.</p>
+
+<h1>4.How can you scale a deployment in Kubernetes?</h1>
+
+<p>Answer: Use the kubectl scale command or update the replicas field in the Deployment YAML file.</p>
+
+<h1>5.What is a Pod in Kubernetes?</h1>
+
+<p>Answer: A Pod is the smallest and simplest unit in the Kubernetes object model, representing a single instance of a running process in a cluster.</p>
+<h1>6.How are Pods different from containers?</h1>
+
+<p>Answer: A Pod can host multiple containers that share the same network namespace and can communicate with each other using localhost</p>
+    
+  </body>
+  <footer>
+    <a href="./index.html">Home</a></footer>
+</html>
