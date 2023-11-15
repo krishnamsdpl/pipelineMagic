@@ -74,6 +74,25 @@
     
       <section>
       <h2 id="latest-iqa">Latest IQA</h2>
+
+<h1>What is difference b/w build pipeline and release pipeline?</h1>  
+<p>
+<b>Build Pipeline:</b>
+
+Purpose: The primary purpose of a build pipeline is to compile, build, and package the source code into executable artifacts or binaries.<br>
+It involves activities such as compiling code, running unit tests, and creating deployable artifacts.
+
+<b>Stages:</b> A typical build pipeline consists of stages like code compilation, unit testing, code analysis, and artifact packaging. 
+It ensures that the codebase is in a deployable state and provides a basis for further testing and deployment.
+<b>Triggers:</b> Build pipelines are often triggered by code changes or commits to a version control system (e.g., Git). When developers push changes, the build pipeline automatically starts to verify the code's integrity.
+
+<b>Release Pipeline:</b>
+
+<b>Purpose:</b> The release pipeline is concerned with deploying the built artifacts to different environments (e.g., development, testing, staging, production) in a controlled and automated manner. It involves activities like environment provisioning, deployment, and possibly post-deployment testing.
+<b>Stages:</b> A release pipeline typically includes stages for deploying to different environments, with each stage having its own set of tasks such as deployment, configuration updates, and testing. It helps manage the progression of the software from one environment to another until it reaches production.
+<b>Triggers:</b> Release pipelines are often triggered manually or automatically after a successful build. Manual approval gates may be included to ensure that the release is ready to move to the next stage.
+
+</p> 
 <h1>What is Nginx server</h1>
 <p class="big">
 <h1>Web Server:</h1>
