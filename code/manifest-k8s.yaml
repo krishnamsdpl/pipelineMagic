@@ -1,0 +1,117 @@
+
+apiVersion: v1
+kind: Namespace
+metadata:
+ # name: #{namespace}#
+---
+# Source: rmg-ebiz-dst-drupal-pfw/templates/secret.yaml
+apiVersion: v1
+kind: Secret
+metadata:
+  name: rmg-ebiz-dst-drupal-pfw-secret
+ # namespace: #{namespace}#
+type: Opaque
+data:
+  ACCOUNT_PASS: "XXXX"
+  DB_PASSWORD: "XXXX"
+  dbRootPassword: "XXXX"
+---
+# Source: rmg-ebiz-dst-drupal-pfw/templates/configmp.yaml
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: rmg-ebiz-dst-drupal-pfw-configmap
+  #namespace: #{namespace}#
+data:
+  ACCOUNT_MAIL: "XXXX"
+  ACCOUNT_NAME: "XXX"
+  APP_ENV: "dev"
+  APP_FORWARD_PORT: "8080"
+  APP_NAME: "XXXX"
+  APP_URL: "XXXX"
+  AZURE_ENVIRONMENT: "prod"
+  DB_FORWARD_PORT: "XXX"
+  DB_HOST: "XXXX"
+  DB_NAME: "XXX"
+  DB_PORT: "3306"
+  DB_USER: "XXX"
+  DO_SITE_INSTALL: "true"
+  INSTALL_PROFILE: "standard"
+  SITE_MAIL: "admin@example.com"
+  SITE_NAME: "XXX"
+---
+# Source: rmg-ebiz-dst-drupal-pfw/templates/service.yaml
+apiVersion: v1
+kind: Service
+metadata:
+  name: rmg-ebiz-dst-drupal-pfw-service
+  #namespace: #{namespace}#
+  annotations:
+    service.beta.kubernetes.io/azure-load-balancer-internal: "true"
+  labels:
+    helm.sh/chart: rmg-ebiz-dst-drupal-pfw-0.1.0
+    app.kubernetes.io/name: rmg-ebiz-dst-drupal-pfw
+    app.kubernetes.io/instance: rmg-ebiz-dst-drupal-pfw-deplyment
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  type: LoadBalancer
+  ports:
+    - port: 80
+      targetPort: 80
+      protocol: TCP
+      name: http
+  selector:
+    app.kubernetes.io/name: rmg-ebiz-dst-drupal-pfw
+    app.kubernetes.io/instance: rmg-ebiz-dst-drupal-pfw-deplyment
+---
+# Source: rmg-ebiz-dst-drupal-pfw/templates/deployment.yaml
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: rmg-ebiz-dst-drupal-pfw-deployment
+  #namespace: #{namespace}#
+  labels:
+    helm.sh/chart: rmg-ebiz-dst-drupal-pfw-0.1.0
+    app.kubernetes.io/name: rmg-ebiz-dst-drupal-pfw
+    app.kubernetes.io/instance: rmg-ebiz-dst-drupal-pfw-deplyment
+    app.kubernetes.io/version: "1.16.0"
+    app.kubernetes.io/managed-by: Helm
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app.kubernetes.io/name: rmg-ebiz-dst-drupal-pfw
+      app.kubernetes.io/instance: rmg-ebiz-dst-drupal-pfw-deplyment
+  template:
+    metadata:
+      labels:
+        app.kubernetes.io/name: rmg-ebiz-dst-drupal-pfw
+        app.kubernetes.io/instance: rmg-ebiz-dst-drupal-pfw-deplyment
+    spec:
+      containers:
+      - name: rmg-ebiz-dst-drupal-pfw
+        image: "rmgnedstdcr01.azurecr.io/#{imageName}#:#{imageTag}#"
+        imagePullPolicy: Always
+        ports:
+        - name: http
+          containerPort: 80
+        envFrom:
+        - configMapRef:
+            name: rmg-ebiz-dst-drupal-pfw-configmap
+        env:
+        - name: ACCOUNT_PASS
+          valueFrom:
+            secretKeyRef:
+              name: rmg-ebiz-dst-drupal-pfw-secret
+              key: ACCOUNT_PASS
+        - name: DB_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: rmg-ebiz-dst-drupal-pfw-secret
+              key: DB_PASSWORD
+        - name: dbRootPassword
+          valueFrom:
+            secretKeyRef:
+              name: rmg-ebiz-dst-drupal-pfw-secret
+              key: dbRootPassword

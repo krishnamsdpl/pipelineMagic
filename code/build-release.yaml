@@ -1,0 +1,169 @@
+# build and release stages code
+trigger:
+  branches:
+    include:
+    - develop  
+                 
+  paths:
+    exclude:
+    - README.md
+    - .devops
+   
+pr: none
+parameters:
+- name: drupalapplicationName
+  type: string
+  displayName: "Application name for deployment"
+  default: rmg.ebiz.dst.drupal.pfw
+
+variables:
+ - name: artifactName
+   value: drupaldrop.pfw
+ - name: imageName
+   value: drupal/rmg.ebiz.dst.drupal.pfw
+ - name: imageTag
+   value: $(Build.BuildNumber)
+ - name: namespace
+   value: rmg-ebiz-dst-drupal-pfw09
+ - name: aksDeployFilePath
+   value: templates/manifests/vanillaAKS/drupal/rmg-ebiz-dst-drupal-pfw.yaml
+ - name: aksDeployFileName
+   value: rmg-ebiz-dst-drupal-pfw.yaml
+ - group: common-rmg-ebiz-dst-tranformation-variables
+
+resources:
+  repositories:
+  - repository: devops_tooling
+    type: git
+    name: rmg.ebiz.dst.devops.app
+    
+        
+stages:
+- stage: Build
+  displayName: Build and push stage
+  jobs:
+  - template: /templates/pipelines/build/rmg-ebiz-dst-build-docker-app.yml@devops_tooling
+    parameters:
+      imageName: ${{variables.imageName}}
+      dockerFilePathRelativeToSourcePath: azure-docker/Dockerfile
+      sourcePath: src
+- stage: Release
+  displayName: Relese Drupal application
+  jobs:
+  - job: ProxySetup
+    displayName: ProxyConfiguration      
+    steps:
+      - script: |
+          export http_proxy=http://$(Proxy_Username):$(Proxy_Password)@10.107.32.9:8080
+          export https_proxy=http://$(Proxy_Username):$(Proxy_Password)@10.107.32.9:8080
+  
+  - template: /templates/pipelines/release/rmg-ebiz-dst-release-docker-app.yml@devops_tooling
+    parameters:
+      imageName: ${{variables.imageName}}
+      imageTag: ${{variables.imageTag}}
+      namespace: ${{variables.namespace}}
+      aksDeployFilePath: ${{variables.aksDeployFilePath}}
+      aksDeployFileName: ${{variables.aksDeployFileName}}
+
+  ##################################################################3333
+  # build and push image to ACR code
+#parameters:
+- name: imageName
+  type: string
+- name: dockerFilePathRelativeToSourcePath
+  type: string
+- name: sourcePath
+  type: string
+
+jobs:
+- job: build_app
+  displayName: Build Containerized Application
+  variables:
+  - template: /templates/vars/vars-build-env.yaml@devops_tooling
+  pool:
+    name: ${{ variables.agentpool }}
+
+  steps:
+  - checkout: self
+  - task: AzureCLI@2
+    displayName: Build and Push ACR Image
+    inputs:
+      azureSubscription: ${{variables.serviceConnection}}
+      scriptType: pscore
+      scriptLocation: inlineScript
+      workingDirectory: $(Build.SourcesDirectory)
+      inlineScript: |
+        Write-Host "Current Directory: $PWD"
+        az acr task run --registry $(containerRegistry) --name build-dockerfile --set image=${{ parameters.imageName }}:$(Build.BuildNumber) --set dockerfile=${{ parameters.dockerFilePathRelativeToSourcePath }} --context ${{ parameters.sourcePath }}
+######################################################################################33333
+# Noraml build flow for react project.
+
+#parameters:
+- name: AppName
+  type: string
+- name: AppSourceFolder
+  type: string
+- name: ArtifactName
+  type: string
+  default: app
+
+#jobs:
+- job: BUILD_APP
+  displayName: Build React app
+  variables:
+  - template: /templates/vars/vars-build-env.yaml@devops_tooling
+  - name: AppBuildDirectoryName
+    value: build
+  pool:
+    name: ${{ variables.agentpool }}
+  steps:
+  - checkout: self
+    clean: true
+
+  - task: npm@1
+    displayName: Restore npm packages
+    inputs:
+      workingDir: ${{ parameters.AppSourceFolder }}
+      command: install
+      publishPackageMetadata: true
+    
+  - task: Bash@3
+    displayName: Build app
+    inputs:
+      workingDirectory: ${{ parameters.AppSourceFolder }}
+      targetType: inline
+      script: |
+        npm run build
+
+  - task: Bash@3
+    displayName: Run unit-tests
+    inputs:
+      workingDirectory: ${{ parameters.AppSourceFolder }}
+      targetType: inline
+      script: |
+        npm run test
+  
+  - task: PublishTestResults@2
+    displayName: Publish unit-test results
+    inputs:
+      testResultsFormat: JUnit
+      testResultsFiles: '${{ parameters.AppSourceFolder }}/junit.xml'
+
+  - task: ArchiveFiles@2
+    displayName: Package app
+    inputs:
+      rootFolderOrFile: ${{ parameters.AppSourceFolder }}/$(AppBuildDirectoryName)
+      includeRootFolder: true
+      archiveType: zip
+      archiveFile: '$(Pipeline.Workspace)/$(AppBuildDirectoryName)/${{ parameters.AppName }}_$(Build.BuildNumber).zip'
+      replaceExistingArchive: true
+      continueOnError: false
+
+  - task: PublishPipelineArtifact@1
+    displayName: "Publish app as artifact"
+    inputs:
+      artifactName: ${{ parameters.ArtifactName }}
+      targetPath: '$(Pipeline.Workspace)/$(AppBuildDirectoryName)/${{ parameters.AppName }}_$(Build.BuildNumber).zip'
+      publishLocation: pipeline
+ ###########################################################################################3
+ 
