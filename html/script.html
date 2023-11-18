@@ -57,6 +57,14 @@
         }    p {
   font-size: 14px;
 }
+code {
+            display: block;
+            white-space: pre-wrap;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }    
   </style>
 </head>
 <body>
@@ -82,7 +90,73 @@
     <h1>Copy Files:</h1>
     Copy-Item -Path C:\Source\File.txt -Destination C:\Destination\
     Copy-Item -Path C:\Users\LENOVO\Documents\projects\adkts\html\powershell\powershell.html -Destination C:\Users\LENOVO\Documents\projects\adkts\html 
+    <code>
+      # Display all running processes
+      Get-Process
+  
+      # Get information about system services
+      Get-Service
+  
+      # List files in the current directory
+      Get-ChildItem
+  
+      # Create a new text file
+      New-Item -Path C:\Example\NewFile.txt -ItemType File
+  
+      # Rename a file
+      Rename-Item -Path C:\Example\OldFile.txt -NewName NewFile.txt
+  
+      # Create a new registry key
+      New-Item -Path HKCU:\Software\ExampleKey
+  
+      # Set registry value
+      Set-ItemProperty -Path HKCU:\Software\ExampleKey -Name ExampleValue -Value "Hello, PowerShell!"
+  
+      # Display network adapter information
+      Get-NetAdapter | Select-Object Name, InterfaceDescription, MacAddress, Status
+  
+      # Show installed modules
+      Get-Module -ListAvailable
+  
+      # Get help for a specific command
+      Get-Help Get-Process
+  
+      # Stop a running process
+      Stop-Process -Name "notepad"
+  
+      # Start a process
+      Start-Process -FilePath "C:\Path\To\Executable.exe"
+  
+      # List installed Windows features
+      Get-WindowsFeature
+  
+      # Display information about the system
+      Get-CimInstance -ClassName Win32_ComputerSystem
+  </code>
+  <h1>PowerShell Script Examples</h1>
 
+    <h2>Find Files in a Directory</h2>
+    <code>
+        # List all files in the specified directory
+        Get-ChildItem -Path C:\Path\To\Directory -File
+    </code>
+
+    <h2>Search for Content in Files</h2>
+    <code>
+        # Search for a specific string in text files within a directory
+        Get-ChildItem -Path C:\Path\To\Directory -Filter *.txt | ForEach-Object {
+            if (Get-Content $_.FullName | Select-String -Pattern "SearchText") {
+                $_.FullName
+            }
+        }
+    </code>
+
+    <h2>Move Files to Another Directory</h2>
+    <code>
+        # Move files from one directory to another
+        Get-ChildItem -Path C:\Source\* -File | Move-Item -Destination C:\Destination\
+    </code>
+  
 
     <br><br>
     <a href="./index.html">Home</a>
