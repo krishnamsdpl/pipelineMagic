@@ -1,3 +1,19 @@
 google_compute_instance
 
 How to connect terraform to gcp.
+
+Once run terraform init
+ans: will generated .terraform ,.terraform.lock.hcl
+
+google_compute_instance
+Networking
+Firewalls
+Network tags
+Network interfaces
+Storage
+Local disks
+Security and access
+Shielded VM
+
+
+
