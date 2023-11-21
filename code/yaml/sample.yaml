@@ -120,3 +120,28 @@ stages:
             PathtoPublish: '$(build.artifactStagingDirectory)/publish'
             ArtifactName: 'drop'
 ==========================================================================================================
+
+
+jobs:
+- job: configureApp
+  displayName: Configure App
+  pool:
+    name: DST-LINUX-AGENT-POOL-D-NE
+
+  steps:
+  - checkout: self  # This line adds the code checkout step
+
+  - script: |
+      #az login --identity
+      while IFS= read -r command; do
+       if [[ ! "$command" =~ ^\s*# && -n "$command" ]]; then
+          echo $command
+          az aks command invoke
+          --resource-group rmg-ne-dst-d-rg-app-01 
+          --name rmg-ne-dst-d-aks-01 
+          --command "kubectl exec -it \$(kubectl get pods -n ${{parameters.namespace}} -o jsonpath='{.items[0].metadata.name}') 
+          -n ${{parameters.namespace}} 
+          -- $command" --output table
+        fi
+      done < $(Build.SourcesDirectory)/src/azure-docker/daily-build.sh
+    displayName: 'Run Drupal commands on AKS'
