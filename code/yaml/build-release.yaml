@@ -142,12 +142,6 @@ jobs:
       targetType: inline
       script: |
         npm run test
-  
-  - task: PublishTestResults@2
-    displayName: Publish unit-test results
-    inputs:
-      testResultsFormat: JUnit
-      testResultsFiles: '${{ parameters.AppSourceFolder }}/junit.xml'
 
   - task: ArchiveFiles@2
     displayName: Package app

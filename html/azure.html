@@ -49,28 +49,6 @@
             margin-bottom: 15px;
             line-height: 1.5;
         }
-       .indent {
-            text-indent: 1.5em; /* You can adjust the indentation as needed */
-        }
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888; 
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
 </style>
 </head>
 <body>
@@ -138,7 +116,10 @@ Like traffic between virtual machines in the same network, traffic is routed thr
 </p>
 
 <p>
-
+  1.	Private IP Address: When you create a private endpoint for a service, it is assigned a private IP address from your virtual network's address space. You can then use this private IP address to connect to the service.<br><br>
+  2.	Service Access via DNS Name: Even though the private endpoint is associated with a private IP address, you can still access the Azure service using its regular DNS name. Azure's internal DNS resolves the service's DNS name to the private IP address when accessed from the virtual network.<br><br>
+  3.	Network Security Group (NSG) Integration: Private endpoints integrate with Azure Network Security Groups (NSGs), allowing you to control inbound and outbound traffic to the service. You can apply NSG rules to restrict or allow traffic based on your security requirements.
+  
 </p>
 </section>
 </body>
