@@ -65,12 +65,29 @@
       </nav>
     
       <section>
-      <h2 id="azure">Azure</h2>
-      <h2>Traffic Management</h2>
+        <h1>Azure Resources Overview</h1>
+        <ol>
+            <li>Virtual Machine (Need to create VM manually)</li>
+            <li>Resource Groups</li>
+            <li>Virtual Networks (poc-rmg-ne-dst-poc-vn-01)
+                <ol>
+                    <li>Subnet (Need to create ACI, AKS, VM, DB)
+                        <ul>
+                            <li>Subnet-NAT (Gateway, Network Security, Route Table)</li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+            <li>Kubernetes Services - Cluster Creation</li>
+            <li>Container Instances (ACR)</li>
+            <li>Key Vault</li>
+        </ol>
+
+       <ol><h2>Traffic Management</h2>
       <h1>1.Azure Traffic Manager:</h1>
       <h1>2.Azure Application Gateway</h1>
-      <h1>3.Azure Load Balancer:</h1></h1>    
-      <h1>What is Azure Application Gateway?</h1> 
+      <h1>3.Azure Load Balancer:</h1></h1></ol>    
+      <h1>1.What is Azure Application Gateway?</h1> 
      <p>
         Azure Application Gateway is a web traffic (OSI layer 7) load balancer that enables you to manage traffic to your web applications. <br>
         Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port, 
