@@ -52,6 +52,14 @@
        .indent {
             text-indent: 1.5em; /* You can adjust the indentation as needed */
         }
+        code {
+            display: block;
+            white-space: pre-wrap;
+            background-color: #f4f4f4;
+            padding: 10px;
+            border: 1px solid #ddd;
+            margin-bottom: 20px;
+        }
 </style>
 </head>
   <body>
@@ -94,6 +102,47 @@
 <h1>6.How are Pods different from containers?</h1>
 
 <p>Answer: A Pod can host multiple containers that share the same network namespace and can communicate with each other using localhost</p>
+
+<h1>How to communicate from a specific pod to a specific service in AKS</h1>
+
+  <p>Define a Kubernetes Service manifest that specifies the service type, ports, and selectors. The selectors determine which pods will be part of the service</p>
+  <code> apiVersion: v1
+kind: Service
+metadata:
+  name: my-service
+spec:
+  selector:
+    app: my-app
+  ports:
+    - protocol: TCP
+      port: 80
+      targetPort: 8080
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: my-app
+spec:
+  replicas: 3
+ <b> selector:
+    matchLabels:
+      app: my-app
+  template:
+    metadata:
+      labels:
+        app: my-app</b>
+    spec:
+      containers:
+        - name: my-container
+          image: my-image
+          ports:
+            - containerPort: 8080
+
+</code>
+<h1> build got success but image tag not updated</h1>
+<p>Check Image Pull Policy:
+  Ensure that your image pull policy is set correctly. 
+  If you are using an image pull policy of IfNotPresent or Never, it might prevent the deployment from fetching the latest image. Consider using the default Always pull policy.</p>
+
 </section> 
 </body>
   <footer>
