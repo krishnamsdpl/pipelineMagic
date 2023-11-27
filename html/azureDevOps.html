@@ -62,6 +62,7 @@
 <body>
       <nav>
         <a href="index.html">Home</a>
+        <a href ="./git.html">Git</a>
         <a href="./azureDevOps.html">AzureDevOps</a> 
         <a href="./aks.html">AKS</a> 
         <a href="./azure.html">Azure</a> 
@@ -71,8 +72,53 @@
         <a href="./latest-iqa.html">Latest IQA</a>
           
       </nav>
-    
-      <section>
+    <section>
       <h2 id="azureDevOps">AzureDevOps</h2>
-      </section></body>
+      <h1>Azure DevOps Concepts</h1>
+
+      <ol>
+          <li>
+              <strong>Azure DevOps Services:</strong>
+              <ol>
+                  <li><strong>Azure Repos:</strong> A version control system that supports Git repositories and Team Foundation Version Control (TFVC). It allows teams to manage and track code changes efficiently.</li>
+                  <li><strong>Azure Pipelines:</strong> A continuous integration/continuous deployment (CI/CD) service that automates the build, test, and deployment phases of the application development lifecycle.</li>
+                  <li><strong>Azure Boards:</strong> An agile project management and work tracking system. It supports Scrum, Kanban, and custom processes, allowing teams to plan, track, and discuss work across the entire development process.</li>
+                  <li><strong>Azure Test Plans:</strong> A testing tool that allows teams to plan, track, and manage testing efforts. It supports manual and automated testing.</li>
+                  <li><strong>Azure Artifacts:</strong> A package management system that enables teams to create, share, and consume packages (such as NuGet or npm packages) from public and private sources.</li>
+              </ol>
+          </li>
+          <li>
+              <strong>Azure DevOps Server:</strong> Formerly known as Team Foundation Server (TFS), Azure DevOps Server is the on-premises version of Azure DevOps. It provides similar capabilities as Azure DevOps Services but can be hosted on an organization's own infrastructure.
+          </li>
+          <li>
+              <strong>Azure DevOps Organizations and Projects:</strong> An organization in Azure DevOps represents a collection of projects, users, and settings. Within an organization, projects are used to group related work items, repositories, pipelines, and other resources.
+          </li>
+          <li>
+              <strong>Repositories:</strong> Azure DevOps Repositories host source code and version history. You can choose between Git repositories (distributed version control) or Team Foundation Version Control (TFVC) repositories (centralized version control).
+          </li>
+          <li>
+              <strong>Pipelines:</strong> Azure Pipelines enable the creation of automated build and release pipelines. These pipelines can be defined using YAML or through a visual designer, allowing teams to automate the process of building, testing, and deploying applications.
+          </li>
+          <li>
+              <strong>Build Agents:</strong> Build agents are used to run build and release tasks defined in pipelines. Agents can be hosted in the cloud or on-premises and are responsible for executing the build and deployment processes.
+          </li>
+          <li>
+              <strong>Build Artifacts:</strong> Build artifacts are the output of the build process, such as binaries, packages, or deployment scripts. These artifacts can be published and consumed by other pipelines.
+          </li>
+          <li>
+              <strong>Service Connections:</strong> Service connections in Azure DevOps enable integration with external services such as Azure, GitHub, Docker Hub, etc. They allow pipelines to securely access and interact with these external services.
+          </li>
+          <li>
+              <strong>Environment and Deployment:</strong> Environments in Azure Pipelines represent logical deployment targets. Pipelines define the stages and conditions for deploying applications to different environments.
+          </li>
+          <li>
+              <strong>Release Gates:</strong> Release gates allow teams to include automated checks or approvals in the deployment pipeline before progressing to the next stage. Gates help ensure the quality and readiness of the application before moving to production.
+          </li>
+          <li>
+              <strong>Azure Boards Work Items:</strong> Work items in Azure Boards represent tasks, bugs, features, or other units of work that teams plan, track, and manage throughout the development process.
+          </li>
+      </ol>
+    </section>
+
+    </body>
 </html>

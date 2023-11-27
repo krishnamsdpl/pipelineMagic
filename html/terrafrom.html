@@ -68,6 +68,7 @@
 <body>
       <nav>
         <a href="index.html">Home</a>
+        <a href ="./git.html">Git</a>
         <a href="./azureDevOps.html">AzureDevOps</a> 
         <a href="./aks.html">AKS</a> 
         <a href="./azure.html">Azure</a> 
@@ -90,7 +91,7 @@
 </p>
       
       <p>For example, 
-       in the "dev" workspace: Set region to "us-west-2".
+       in the "dev" workspace: Set region to "us-west-2".<br>
        In the "staging" workspace: Set region to "us-east-1".
       </p>
 
@@ -99,12 +100,11 @@
        </p>
 
        <p>
+        Provider
         Resources
         Data sources
-        Provider
-        Varaibles and  Outputs
+        Varaibles and Outputs
         Modules
-        Checks
         Imports
         expression
         Functions
@@ -113,7 +113,7 @@
         
        </p>
        <p>
-        Terraform versionv1.6
+        Terraform version v1.6
 <code>main.tf
 outputs.tf
 providers.tf
@@ -135,19 +135,193 @@ tests/
 
 <h1> Terraform Concepts and instance creation</h1>
 <p>
-  <div class="line">
+  <ol><li>
   1.Resources
   2.Data
   3.Modules
   4.Null Resources
-
-
  <br>
   1.Locals---
-  2.Tags
-</div>
+  2.Tags</li></ol>
+  <code>
+    # 1. Resources
+resource "example_resource" "example" {
+  name = "example-instance"
+  # ... other resource configurations
+}
 
+# 2. Data
+data "example_data" "example" {
+  # ... data configurations
+}
+
+# 3. Modules
+module "example_module" {
+  source = "./path/to/module"
+  # ... module configurations
+}
+
+# 4. Null Resources
+resource "null_resource" "example" {
+  triggers = {
+    trigger_key = "trigger_value"
+  }
+  
+  # ... null_resource configurations
+}
+
+# 5. Locals
+locals {
+  example_local = "local_value"
+  # ... local configurations
+}
+
+# 6. Tags
+resource "example_resource_with_tags" "example" {
+  name = "example-instance-with-tags"
+  tags = {
+    key1 = "value1"
+    key2 = "value2"
+  }
+  # ... other resource configurations
+}
+
+  </code>
+
+  <h1>What is null Resources</h1>
+  <p>In Terraform, the null_resource is a resource type that represents a resource that doesn't actually exist in any real infrastructure. It is often used as a placeholder to execute local provisioners or to create dependencies between resources</p>
+  <code>
+    provider "azurerm" {
+      features = {}
+    }
+    
+    resource "azurerm_virtual_machine" "cluster" {
+      count           = 3
+      name            = "vm-instance-${count.index + 1}"
+      resource_group_name = "example-resource-group"
+      location        = "East US"
+      vm_size         = "Standard_DS1_v2"
+    
+      storage_image_reference {
+        publisher = "Canonical"
+        offer     = "UbuntuServer"
+        sku       = "16.04-LTS"
+        version   = "latest"
+      }
+    
+      os_profile {
+        computer_name  = "hostname-${count.index + 1}"
+        admin_username = "adminuser"
+        admin_password = "Password1234!"
+      }
+    
+      os_profile_linux_config {
+        disable_password_authentication = false
+      }
+    
+      network_interface_ids = [azurerm_network_interface.cluster[count.index].id]
+    }
+    
+    resource "null_resource" "cluster" {
+      # Changes to any instance of the cluster require re-provisioning
+      triggers = {
+        cluster_instance_ids = join(",", azurerm_virtual_machine.cluster[*].id)
+      }
+    
+      # Bootstrap script can run on any instance of the cluster
+      # So we just choose the first in this case
+      connection {
+        host = element(azurerm_virtual_machine.cluster[*].public_ip_address, 0)
+      }
+    
+      provisioner "remote-exec" {
+        # Bootstrap script called with private_ip of each node in the cluster
+        inline = [
+          "bootstrap-cluster.sh ${join(" ", azurerm_virtual_machine.cluster[*].private_ip_address)}",
+        ]
+      }
+    }
+    
+    
+  </code>
+
+<p>
+ <ol>1.Resource Type: Changed resource "azureance" to resource "azurerm_virtual_machine" since you are working with Azure VM instances.<br>
+
+  2.Instance Configuration: Updated the instance configuration for Azure VMs (azurerm_virtual_machine) to match Azure resource naming conventions, including the definition of the VM name, resource group, location, etc.<br>
+  
+  3.Triggers and Connection Blocks: Updated references from azurtance to azurerm_virtual_machine for consistency. Also adjusted the connection block to use public_ip_address instead of public_ip.<br>
+  
+  4.Script Execution: Modified the provisioner "remote-exec" block to use azurerm_virtual_machine.cluster[*].private_ip_address for passing private IP addresses to the bootstrap script.</ol></p>
 
 </p>
+<p>
+  
+In Terraform, local variables work similarly for any cloud provider, including Azure. 
+You can define local variables in the same way, and they can be used to store values, expressions, or calculations for use within your Azure-specific Terraform configurations.
+<code>
+  provider "azurerm" {
+    features = {}
+  }
+  
+  locals {
+    resource_group_name = "my-resource-group"
+    location            = "East US"
+    virtual_network_name = "my-virtual-network"
+    subnet_name         = "my-subnet"
+  }
+  
+  resource "azurerm_resource_group" "example" {
+    name     = local.resource_group_name
+    location = local.location
+  }
+  
+  resource "azurerm_virtual_network" "example" {
+    name                = local.virtual_network_name
+    resource_group_name = azurerm_resource_group.example.name
+    location            = local.location
+    address_space       = ["10.0.0.0/16"]
+  }
+  
+  resource "azurerm_subnet" "example" {
+    name                 = local.subnet_name
+    resource_group_name  = azurerm_resource_group.example.name
+    virtual_network_name = azurerm_virtual_network.example.name
+    address_prefixes     = ["10.0.1.0/24"]
+  }
+  
+  output "subnet_id" {
+    value = azurerm_subnet.example.id
+  Its meaning
+  The output block demonstrates how you might use a local variable within an output  
+  }
+  </code>
+</p>
+<h2> what is state file and how to lock state file</h2>
+<p>In Azure, you can use Azure Storage as the backend for your Terraform state file, and you can enable state locking using Azure Storage's built-in locking mechanism. Azure Storage provides a service called Azure Blob Storage, and you can use a blob container with an associated Azure Storage Account for storing your Terraform state file.</p>
+<code>
+<p></p>  
+1.Create an Azure Storage Account:
+
+Go to the Azure portal and create a new Storage Account.
+Note the Storage Account name and the access key.
+2.Create a Blob Container:
+
+Inside the Storage Account, create a blob container where you want to store the Terraform state file.
+Make a note of the container name.
+3.Configure Terraform Backend:
+
+Update your Terraform configuration to use Azure Storage as the backend. Specify the storage_account_name, container_name, and access_key:</p>
+  terraform {
+    backend "azurerm" {
+      resource_group_name   = "your-resource-group"
+      storage_account_name  = "your-storage-account"
+      container_name        = "your-container"
+      key                   = "path/to/terraform.tfstate"
+    }
+  }
+  
+</code>
+
       </section>
       </body></html>

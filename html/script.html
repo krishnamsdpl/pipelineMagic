@@ -70,6 +70,7 @@ code {
 <body>
       <nav>
         <a href="index.html">Home</a>
+        <a href ="./git.html">Git</a>
         <a href="./azureDevOps.html">AzureDevOps</a> 
         <a href="./aks.html">AKS</a> 
         <a href="./azure.html">Azure</a> 
@@ -80,16 +81,21 @@ code {
           
       </nav>
     
-      <section>
-      <h1 id="script">Scripting</h1>
+    <section>
+    <h1 id="script">Scripting</h1>
     <h1>Create a new text file</h1> 
+    <code>
     New-Item -ItemType File -Path $filePath -Force
-
+    </code>
     <h1>Create a Directory:</h1>
+    <code>
     New-Item -ItemType Directory -Path C:\NewFolder
+  </code>
     <h1>Copy Files:</h1>
+    <code>
     Copy-Item -Path C:\Source\File.txt -Destination C:\Destination\
-    Copy-Item -Path C:\Users\LENOVO\Documents\projects\adkts\html\powershell\powershell.html -Destination C:\Users\LENOVO\Documents\projects\adkts\html 
+    Copy-Item -Path C:\Users\LENOVO\Documents\projects\adkts\html\powershell\powershell.html -Destination C:\Users\LENOVO\Documents\projects\adkts\html
+  </code>
     <code>
       # Display all running processes
       Get-Process
@@ -133,15 +139,15 @@ code {
       # Display information about the system
       Get-CimInstance -ClassName Win32_ComputerSystem
   </code>
-  <h1>PowerShell Script Examples</h1>
+    <h1>PowerShell Script Examples</h1>
 
-    <h2>Find Files in a Directory</h2>
+    <h1>Find Files in a Directory</h1>
     <code>
         # List all files in the specified directory
         Get-ChildItem -Path C:\Path\To\Directory -File
     </code>
 
-    <h2>Search for Content in Files</h2>
+    <h1>Search for Content in Files</h1>
     <code>
         # Search for a specific string in text files within a directory
         Get-ChildItem -Path C:\Path\To\Directory -Filter *.txt | ForEach-Object {
@@ -151,11 +157,37 @@ code {
         }
     </code>
 
-    <h2>Move Files to Another Directory</h2>
+    <h1>Move Files to Another Directory</h1>
     <code>
         # Move files from one directory to another
         Get-ChildItem -Path C:\Source\* -File | Move-Item -Destination C:\Destination\
     </code>
+
+    <h1>List all files with a specific file extension:</h1>
+    <code>Get-ChildItem -Path C:\Path\To\Directory -Filter *.txt
+    </code>
+    <h1>Recursively list all files in subdirectories:
+    </h1>
+    <code>Get-ChildItem -Path C:\Path\To\Directory -Recurse
+    </code>
+    <h1>Search for files containing a specific string:
+    </h1>
+    <code>Get-ChildItem -Path C:\Path\To\Directory -Recurse | Select-String -Pattern "searchString"
+    </code>
+    <h1>Find the newest or oldest file in a directory</h1>
+    <code># Find the newest file
+      Get-ChildItem -Path C:\Path\To\Directory | Sort-Object LastWriteTime -Descending | Select-Object -First 1
+      
+      # Find the oldest file
+      Get-ChildItem -Path C:\Path\To\Directory | Sort-Object LastWriteTime | Select-Object -First 1
+      </code>
+      <h1>Search for files based on size:</h1>
+      <code># Find files larger than a specific size (e.g., 1GB)
+        Get-ChildItem -Path C:\Path\To\Directory | Where-Object { $_.Length -gt 1GB }
+        
+        # Find files smaller than a specific size (e.g., 100MB)
+        Get-ChildItem -Path C:\Path\To\Directory | Where-Object { $_.Length -lt 100MB }
+        </code>
       <br><br>
 
       <h1>linux Commands</h1>

@@ -49,33 +49,12 @@
             margin-bottom: 15px;
             line-height: 1.5;
         }
-       .indent {
-            text-indent: 1.5em; /* You can adjust the indentation as needed */
-        }
-/* width */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-/* Track */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; 
-}
- 
-/* Handle */
-::-webkit-scrollbar-thumb {
-  background: #888; 
-}
-
-/* Handle on hover */
-::-webkit-scrollbar-thumb:hover {
-  background: #555; 
-}
 </style>
 </head>
 <body>
       <nav>
         <a href="index.html">Home</a>
+        <a href ="./git.html">Git</a>
         <a href="./azureDevOps.html">AzureDevOps</a> 
         <a href="./aks.html">AKS</a> 
         <a href="./azure.html">Azure</a> 
@@ -87,12 +66,29 @@
       </nav>
     
       <section>
-      <h2 id="azure">Azure</h2>
-      <h2>Traffic Management</h2>
+        <h1>Azure Resources Overview</h1>
+        <ol>
+            <li>Virtual Machine (Need to create VM manually)</li>
+            <li>Resource Groups</li>
+            <li>Virtual Networks (poc-rmg-ne-dst-poc-vn-01)
+                <ol>
+                    <li>Subnet (Need to create ACI, AKS, VM, DB)
+                        <ul>
+                            <li>Subnet-NAT (Gateway, Network Security, Route Table)</li>
+                        </ul>
+                    </li>
+                </ol>
+            </li>
+            <li>Kubernetes Services - Cluster Creation</li>
+            <li>Container Instances (ACR)</li>
+            <li>Key Vault</li>
+        </ol>
+
+       <ol><h2>Traffic Management</h2>
       <h1>1.Azure Traffic Manager:</h1>
       <h1>2.Azure Application Gateway</h1>
-      <h1>3.Azure Load Balancer:</h1></h1>    
-      <h1>What is Azure Application Gateway?</h1> 
+      <h1>3.Azure Load Balancer:</h1></h1></ol>    
+      <h1>1.What is Azure Application Gateway?</h1> 
      <p>
         Azure Application Gateway is a web traffic (OSI layer 7) load balancer that enables you to manage traffic to your web applications. <br>
         Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port, 
@@ -134,12 +130,19 @@ A load balancer frontend can be accessed from an on-premises network in a hybrid
 Virtual network peering enables you to seamlessly connect two or more<a href="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview"> Virtual Networks </a>in Azure. <br>
 The virtual networks appear as one for connectivity purposes. <br>
 The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. <br>
-Like traffic between virtual machines in the same network, traffic is routed through Microsoft's private network only.  
+Like traffic between virtual machines in the same network, traffic is routed through Microsoft's private network only.<br><br>
+
+<a href="https://k21academy.com/microsoft-azure/az-303/azure-vnet-peering/">Vnet peering</a>
 </p>
 
 <p>
-
+  1.	Private IP Address: When you create a private endpoint for a service, it is assigned a private IP address from your virtual network's address space. You can then use this private IP address to connect to the service.<br><br>
+  2.	Service Access via DNS Name: Even though the private endpoint is associated with a private IP address, you can still access the Azure service using its regular DNS name. Azure's internal DNS resolves the service's DNS name to the private IP address when accessed from the virtual network.<br><br>
+  3.	Network Security Group (NSG) Integration: Private endpoints integrate with Azure Network Security Groups (NSGs), allowing you to control inbound and outbound traffic to the service. You can apply NSG rules to restrict or allow traffic based on your security requirements.
+  
 </p>
+<p>What is Peering in Azure</p>
+
 </section>
 </body>
 <footer>  
