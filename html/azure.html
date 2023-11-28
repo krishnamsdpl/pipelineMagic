@@ -144,7 +144,36 @@ Like traffic between virtual machines in the same network, traffic is routed thr
 </p>
 <p>What is Peering in Azure</p>
 <h1>reverting head origin</h1>
-</section>
+<h1>What is Azure container instances(ACI)</h1>
+  <p>Azure Container Instances (ACI) is a serverless container service provided by Microsoft Azure. 
+     It allows you to run containers on-demand without managing the underlying infrastructure.
+     ACI is suitable for scenarios where you need a lightweight and simple container orchestration solution without the complexity of managing a full-fledged container orchestration platform like Kubernetes.</p>
+
+     <p>
+      <b>No Cluster Management:</b><br>
+
+      ACI abstracts away the need for managing container orchestration clusters. You only pay for the containers you run.
+      
+      <br><b>Rapid Deployment:</b><br>
+      
+      Containers can be deployed in seconds, making ACI suitable for burst workloads, one-time jobs, or applications with varying workloads.
+      
+      <br><b>Multiple Container Types:</b><br>
+      
+      ACI supports both Linux and Windows containers, allowing flexibility in your choice of operating system.
+      
+      <br><b>Elastic Scalability:</b><br>
+      
+      Easily scale your applications up or down by adjusting the number of container instances.</p>
+      <code>
+        Example: Deploying a Container in Azure Container Instances
+         1.Create a Resource Group:
+         az group create --name MyContainerGroup --location eastus
+         2.Deploy a Container:
+         az container create --resource-group MyContainerGroup --name mynginx --image nginx --ports 80
+
+      </code>
+    </section>
 </body>
 <footer>  
     <a href="./index.html">Home</a></footer>

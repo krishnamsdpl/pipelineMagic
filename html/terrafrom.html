@@ -348,6 +348,60 @@ Update your Terraform configuration to use Azure Storage as the backend. Specify
   }
   
 </code>
+<h1>What is Meta-Arguments in terraform</h1>
 
+  <b>Count:</b>
+  The count meta-argument is used to create multiple instances of a resource. It takes an integer value, and Terraform creates that many instances of the resource.
+  <br>
+  <code>
+  resource "aws_instance" "example" {
+    count = 3
+    ami   = "ami-0c55b159cbfafe1f0"
+    instance_type = "t2.micro"
+  </code>
+ <br>
+ <b>for_each:</b>   
+ The for_each meta-argument is used to create multiple instances of a resource based on a map or set. It allows you to dynamically create resources based on the keys of a map or elements of a set.
+<code>
+  variable "instance_names" {
+    type    = set(string)
+    default = ["web", "app", "db"]
+  }
+  
+  resource "aws_instance" "example" {
+    for_each = toset(var.instance_names)
+    ami      = "ami-0c55b159cbfafe1f0"
+    instance_type = "t2.micro"
+    tags = {
+      Name = each.value
+    }
+  }
+  </code>
+
+<br>
+<b>provider:</b>
+ The provider meta-argument is used to specify a provider configuration for a resource. It allows you to select a specific provider configuration when using multiple providers in the same Terraform configuration.
+ <br>
+ <code>
+ resource "aws_instance" "example" {
+  provider = aws.us_west
+  ami      = "ami-0c55b159cbfafe1f0"
+  instance_type = "t2.micro"
+}
+ </code>
+<h1>depends_on:</h1>
+<p>The depends_on meta-argument is used to explicitly specify the dependencies between resources. It forces Terraform to consider the specified dependencies when creating or updating resources</p>
+<code>
+  resource "aws_instance" "web" {
+    ami             = "ami-0c55b159cbfafe1f0"
+    instance_type   = "t2.micro"
+  }
+  
+  resource "aws_security_group" "example" {
+    // ...
+    depends_on = [aws_instance.web]
+  }
+  
+</code>
       </section>
       </body></html>
