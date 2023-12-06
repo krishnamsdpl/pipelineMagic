@@ -1,0 +1,15 @@
+# Use an official Nginx image as the base image
+FROM nginx:alpine
+
+# Set the working directory
+WORKDIR \pipelineMagic\
+
+# Copy the HTML file into the container
+COPY pipelineMagic/index.html .
+
+
+# Expose port 80 for the web server
+EXPOSE 80
+
+# Set the entrypoint to start Nginx in the foreground
+ENTRYPOINT ["nginx", "-g", "daemon off;"]
