@@ -188,6 +188,23 @@ code {
         # Find files smaller than a specific size (e.g., 100MB)
         Get-ChildItem -Path C:\Path\To\Directory | Where-Object { $_.Length -lt 100MB }
         </code>
+
+        <h1>
+
+          Conditional statements in PowerShell
+        </h1>
+        <code>
+          $number = 10
+
+if ($number -lt 5) {
+    Write-Host "The number is less than 5."
+} elseif ($number -eq 10) {
+    Write-Host "The number is exactly 10."
+} else {
+    Write-Host "The number is neither less than 5 nor exactly 10."
+}
+
+        </code>
       <br><br>
 
       <h1>linux Commands</h1>
