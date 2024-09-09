@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,6 +48,13 @@
       padding: 20px;
       box-sizing: border-box;
     }
+
+    /* Clearfix for floats */
+    .clearfix::after {
+      content: "";
+      display: table;
+      clear: both;
+    }
   </style>
 </head>
 
@@ -56,36 +64,36 @@
     <h1>Cloud DevOps Engineer</h1>
   </header>
 
-  <nav>
-    <a href="./index.html">Home</a>
-    <a href ="./git.html">Git</a>
-    <a href="./azureDevOps.html">AzureDevOps</a> 
-    <a href="./aks.html">AKS</a> 
-    <a href="./azure.html">Azure</a> 
-    <a href="./terrafrom.html">Terrafrom</a> 
-    <a href="./script.html">Scripting</a>
-    <a href="./iqa.html">IQA</a>
-    <a href="./latest-iqa.html">Latest IQA</a>
-      
-  </nav>
+  <div class="clearfix">
+    <nav>
+      <a href="./index.html">Home</a>
+      <a href="./git.html">Git</a>
+      <a href="./azureDevOps.html">Azure DevOps</a>
+      <a href="./aks.html">AKS</a>
+      <a href="./azure.html">Azure</a>
+      <a href="./terraform.html">Terraform</a>
+      <a href="./script.html">Scripting</a>
+      <a href="./iqa.html">IQA</a>
+      <a href="./latest-iqa.html">Latest IQA</a>
+    </nav>
 
-  <section>
-    <h2 id="azureDevOps">AzureDevOps</h2>
-    <p>This is azure Devops like build and Release pipeline </p>
+    <section>
+      <h2 id="azureDevOps">Azure DevOps</h2>
+      <p>This section covers Azure DevOps, including build and release pipelines.</p>
 
-    <h2 id="aks">AKS</h2>
-    <p>This is Knows about configuring application for deploying application</p>
+      <h2 id="aks">AKS</h2>
+      <p>This section covers configuring applications for deployment in Azure Kubernetes Service (AKS).</p>
 
-    <h2 id="terrafrom">Terrafrom</h2>
-    <p>This is knows about Terraform commands and how to executing main.tf , variable.tf statefile</p>
+      <h2 id="terraform">Terraform</h2>
+      <p>This section covers Terraform commands and how to execute files like main.tf and variable.tf, as well as managing state files.</p>
 
-    <h2 id="script">Scripting</h2>
-    <p>This is knows about Scripting like bash scripting and powershell scripting</p>
+      <h2 id="scripting">Scripting</h2>
+      <p>This section covers scripting languages such as Bash and PowerShell.</p>
 
-    <h2 id="iqa">IQA</h2>
-    <p>This is know about IQA previos</p>
-  
-  </section>
+      <h2 id="iqa">IQA</h2>
+      <p>This section covers Information Quality Assurance (IQA) from previous standards.</p>
+    </section>
+  </div>
 
 </body>
 
