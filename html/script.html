@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -47,46 +48,52 @@
       padding: 20px;
       box-sizing: border-box;
     }
-    p {
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
 
-        .indent {
-            text-indent: 1.5em; /* You can adjust the indentation as needed */
-        }    p {
-  font-size: 14px;
-}
-code {
-            display: block;
-            white-space: pre-wrap;
-            background-color: #f4f4f4;
-            padding: 10px;
-            border: 1px solid #ddd;
-            margin-bottom: 20px;
-        }    
+    p {
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .indent {
+      text-indent: 1.5em;
+      /* You can adjust the indentation as needed */
+    }
+
+    p {
+      font-size: 14px;
+    }
+
+    code {
+      display: block;
+      white-space: pre-wrap;
+      background-color: #f4f4f4;
+      padding: 10px;
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+    }
   </style>
 </head>
+
 <body>
   <header>
     <h1>Cloud DevOps Engineer</h1>
   </header>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href ="./git.html">Git</a>
-        <a href="./azureDevOps.html">Azure DevOps</a> 
-        <a href="./aks.html">AKS</a> 
-        <a href="./azure.html">Azure</a> 
-        <a href="./terrafrom.html">Terrafrom</a> 
-        <a href="./script.html">Scripting</a>
-        <a href="./iqa.html">IQA</a>
-        <a href="./latest-iqa.html">Latest IQA</a>
-          
-      </nav>
-    
-    <section>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="./git.html">Git</a>
+    <a href="./azureDevOps.html">Azure DevOps</a>
+    <a href="./aks.html">AKS</a>
+    <a href="./azure.html">Azure</a>
+    <a href="./terrafrom.html">Terrafrom</a>
+    <a href="./script.html">Scripting</a>
+    <a href="./iqa.html">IQA</a>
+    <a href="./latest-iqa.html">Latest IQA</a>
+
+  </nav>
+
+  <section>
     <h1 id="script">Scripting</h1>
-    <h1>Create a new text file</h1> 
+    <h1>Create a new text file</h1>
     <code>
     New-Item -ItemType File -Path $filePath -Force
     </code>
@@ -184,18 +191,18 @@ code {
       # Find the oldest file
       Get-ChildItem -Path C:\Path\To\Directory | Sort-Object LastWriteTime | Select-Object -First 1
       </code>
-      <h1>Search for files based on size:</h1>
-      <code># Find files larger than a specific size (e.g., 1GB)
+    <h1>Search for files based on size:</h1>
+    <code># Find files larger than a specific size (e.g., 1GB)
         Get-ChildItem -Path C:\Path\To\Directory | Where-Object { $_.Length -gt 1GB }
         
         # Find files smaller than a specific size (e.g., 100MB)
         Get-ChildItem -Path C:\Path\To\Directory | Where-Object { $_.Length -lt 100MB }
         </code>
 
-        <h1>
-          Conditional statements in PowerShell
-        </h1>
-        <code>
+    <h1>
+      Conditional statements in PowerShell
+    </h1>
+    <code>
           $number = 10
         if ($number -lt 5) {
          Write-Host "The number is less than 5."
@@ -205,8 +212,8 @@ code {
           Write-Host "The number is neither less than 5 nor exactly 10."
         }
         </code>
-        <h1>comparing String in power shell script</h1>
-        <code>
+    <h1>comparing String in power shell script</h1>
+    <code>
           $input = "Hello"
 
           if ($input -eq "Hello") {
@@ -218,24 +225,25 @@ code {
           }
           </code>
 
-       <h1>
-        Using ForEach-Object Cmdlet
-       </h1>   
-       <code>
+    <h1>
+      Using ForEach-Object Cmdlet
+    </h1>
+    <code>
         $numbers = 1..5
         $numbers | ForEach-Object {
          Write-Host "Number: $_"
           }
        </code>
-      <br><br>
+    <br><br>
 
-      <h1>linux Commands</h1>
-      <img src=".\images\linux-commands.png"  width="600" height="600">
+    <h1>linux Commands</h1>
+    <img src=".\images\linux-commands.png" width="600" height="600">
 
     <h1></h1>
     <a href="./index.html">Home</a>
 
     >
-      </section>
-  </body>
+  </section>
+</body>
+
 </html>

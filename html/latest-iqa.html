@@ -1,200 +1,250 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Azure Cloud Engineer</title>
-  <style>
- body {
-      font-family: Arial, sans-serif;
-      margin: 0;
-      padding: 0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azure Cloud Engineer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
         h2 {
             color: #333;
         }
+
         p {
             margin-bottom: 20px;
         }
 
-    header {
-      background-color: #333;
-      color: white;
-      padding: 10px;
-      text-align: center;
-    }
+        header {
+            background-color: #333;
+            color: white;
+            padding: 10px;
+            text-align: center;
+        }
 
-    nav {
-      float: left;
-      width: 20%;
-      background-color: #f1f1f1;
-      padding: 15px;
-      box-sizing: border-box;
-    }
+        nav {
+            float: left;
+            width: 20%;
+            background-color: #f1f1f1;
+            padding: 15px;
+            box-sizing: border-box;
+        }
 
-    nav a {
-      display: block;
-      padding: 10px;
-      text-decoration: none;
-      color: #333;
-      margin-bottom: 5px;
-      border-radius: 5px;
-      background-color: #ddd;
-      transition: background-color 0.3s;
-    }
+        nav a {
+            display: block;
+            padding: 10px;
+            text-decoration: none;
+            color: #333;
+            margin-bottom: 5px;
+            border-radius: 5px;
+            background-color: #ddd;
+            transition: background-color 0.3s;
+        }
 
-    nav a:hover {
-      background-color: #bbb;
-    }
+        nav a:hover {
+            background-color: #bbb;
+        }
 
-    section {
-      float: left;
-      width: 80%;
-      padding: 20px;
-      box-sizing: border-box;
-    }
-  </style>
+        section {
+            float: left;
+            width: 80%;
+            padding: 20px;
+            box-sizing: border-box;
+        }
+    </style>
 </head>
+
 <body>
     <header>
         <h1>Cloud DevOps Engineer</h1>
-      </header>
-       <nav>
+    </header>
+    <nav>
         <a href="index.html">Home</a>
-        <a href ="./git.html">Git</a>
-        <a href="./azureDevOps.html">Azure DevOps</a> 
-        <a href="./aks.html">AKS</a> 
-        <a href="./azure.html">Azure</a> 
-        <a href="./terrafrom.html">Terrafrom</a> 
+        <a href="./git.html">Git</a>
+        <a href="./azureDevOps.html">Azure DevOps</a>
+        <a href="./aks.html">AKS</a>
+        <a href="./azure.html">Azure</a>
+        <a href="./terrafrom.html">Terrafrom</a>
         <a href="./script.html">Scripting</a>
         <a href="./iqa.html">IQA</a>
         <a href="./latest-iqa.html">Latest IQA</a>
-          
-      </nav>
-    
-      <section>
-      <h2 id="latest-iqa">Latest IQA</h2>
 
-<h1>What is difference b/w build pipeline and release pipeline?</h1>  
-<h2>Build Pipeline:</h2>
-    <p><strong>Purpose:</strong> The primary purpose of a build pipeline is to compile, build, and package the source code into executable artifacts or binaries. It involves activities such as compiling code, running unit tests, and creating deployable artifacts.</p>
-    <p><strong>Stages:</strong> A typical build pipeline consists of stages like code compilation, unit testing, code analysis, and artifact packaging. It ensures that the codebase is in a deployable state and provides a basis for further testing and deployment.</p>
-    <p><strong>Triggers:</strong> Build pipelines are often triggered by code changes or commits to a version control system (e.g., Git). When developers push changes, the build pipeline automatically starts to verify the code's integrity.</p>
+    </nav>
 
-    <h2>Release Pipeline:</h2>
-    <p><strong>Purpose:</strong> The release pipeline is concerned with deploying the built artifacts to different environments (e.g., development, testing, staging, production) in a controlled and automated manner. It involves activities like environment provisioning, deployment, and possibly post-deployment testing.</p>
-    <p><strong>Stages:</strong> A release pipeline typically includes stages for deploying to different environments, with each stage having its own set of tasks such as deployment, configuration updates, and testing. It helps manage the progression of the software from one environment to another until it reaches production.</p>
-    <p><strong>Triggers:</strong> Release pipelines are often triggered manually or automatically after a successful build. Manual approval gates may be included to ensure that the release is ready to move to the next stage.</p>
+    <section>
+        <h2 id="latest-iqa">Latest IQA</h2>
 
-<h2>What is CI and CD In Azure DevOps</h2>
-<h2>Continuous Integration (CI) in Azure DevOps:</h2>
-    <p><strong>Purpose:</strong> Continuous Integration involves automatically building and testing code whenever changes are committed to the version control system.</p>
-    <p><strong>Azure DevOps Services:</strong> In Azure DevOps, CI is achieved through the use of build pipelines. These pipelines automatically trigger when changes are pushed, ensuring code integrity.</p>
+        <h1>What is difference b/w build pipeline and release pipeline?</h1>
+        <h2>Build Pipeline:</h2>
+        <p><strong>Purpose:</strong> The primary purpose of a build pipeline is to compile, build, and package the
+            source code into executable artifacts or binaries. It involves activities such as compiling code, running
+            unit tests, and creating deployable artifacts.</p>
+        <p><strong>Stages:</strong> A typical build pipeline consists of stages like code compilation, unit testing,
+            code analysis, and artifact packaging. It ensures that the codebase is in a deployable state and provides a
+            basis for further testing and deployment.</p>
+        <p><strong>Triggers:</strong> Build pipelines are often triggered by code changes or commits to a version
+            control system (e.g., Git). When developers push changes, the build pipeline automatically starts to verify
+            the code's integrity.</p>
 
-    <h2>Continuous Deployment (CD) in Azure DevOps:</h2>
-    <p><strong>Purpose:</strong> Continuous Deployment automates the process of deploying code changes to different environments (e.g., development, testing, production).</p>
-    <p><strong>Azure DevOps Services:</strong> CD is implemented through release pipelines in Azure DevOps. These pipelines automate the deployment of artifacts to various environments, ensuring a consistent and reliable release process.</p>
-    <p><strong>Integration with CI:</strong> CD pipelines in Azure DevOps often integrate seamlessly with CI pipelines, allowing for a continuous flow from code changes to deployment without manual intervention.</p>
-<h1>What is difference b/w Managed Identity vs Service Principal in Azure </h1>
-<h2>Managed Identity:</h2>
-    <p><strong>Purpose:</strong></p>
-    <ul>
-        <li>Designed for authenticating resources within Azure services.</li>
-        <li>Provides a way to authenticate to services without storing credentials in code or configuration files.</li>
-    </ul>
+        <h2>Release Pipeline:</h2>
+        <p><strong>Purpose:</strong> The release pipeline is concerned with deploying the built artifacts to different
+            environments (e.g., development, testing, staging, production) in a controlled and automated manner. It
+            involves activities like environment provisioning, deployment, and possibly post-deployment testing.</p>
+        <p><strong>Stages:</strong> A release pipeline typically includes stages for deploying to different
+            environments, with each stage having its own set of tasks such as deployment, configuration updates, and
+            testing. It helps manage the progression of the software from one environment to another until it reaches
+            production.</p>
+        <p><strong>Triggers:</strong> Release pipelines are often triggered manually or automatically after a successful
+            build. Manual approval gates may be included to ensure that the release is ready to move to the next stage.
+        </p>
 
-    <p><strong>Lifecycle:</strong></p>
-    <ul>
-        <li>Created and managed by Azure, eliminating the need for manual management of credentials.</li>
-        <li>Tied to a specific Azure resource, such as a virtual machine, Azure Function, or Azure App Service.</li>
-    </ul>
+        <h2>What is CI and CD In Azure DevOps</h2>
+        <h2>Continuous Integration (CI) in Azure DevOps:</h2>
+        <p><strong>Purpose:</strong> Continuous Integration involves automatically building and testing code whenever
+            changes are committed to the version control system.</p>
+        <p><strong>Azure DevOps Services:</strong> In Azure DevOps, CI is achieved through the use of build pipelines.
+            These pipelines automatically trigger when changes are pushed, ensuring code integrity.</p>
 
-    <p><strong>Automation:</strong></p>
-    <ul>
-        <li>Simplifies identity management by removing the need to rotate and manage credentials.</li>
-        <li>Well-suited for scenarios where you need to access other Azure resources securely without explicit credential management.</li>
-    </ul>
+        <h2>Continuous Deployment (CD) in Azure DevOps:</h2>
+        <p><strong>Purpose:</strong> Continuous Deployment automates the process of deploying code changes to different
+            environments (e.g., development, testing, production).</p>
+        <p><strong>Azure DevOps Services:</strong> CD is implemented through release pipelines in Azure DevOps. These
+            pipelines automate the deployment of artifacts to various environments, ensuring a consistent and reliable
+            release process.</p>
+        <p><strong>Integration with CI:</strong> CD pipelines in Azure DevOps often integrate seamlessly with CI
+            pipelines, allowing for a continuous flow from code changes to deployment without manual intervention.</p>
+        <h1>What is difference b/w Managed Identity vs Service Principal in Azure </h1>
+        <h2>Managed Identity:</h2>
+        <p><strong>Purpose:</strong></p>
+        <ul>
+            <li>Designed for authenticating resources within Azure services.</li>
+            <li>Provides a way to authenticate to services without storing credentials in code or configuration files.
+            </li>
+        </ul>
 
-    <p><strong>Usage:</strong></p>
-    <ul>
-        <li>Best suited for scenarios where Azure services need to authenticate to each other without involving a separate identity service.</li>
-    </ul>
+        <p><strong>Lifecycle:</strong></p>
+        <ul>
+            <li>Created and managed by Azure, eliminating the need for manual management of credentials.</li>
+            <li>Tied to a specific Azure resource, such as a virtual machine, Azure Function, or Azure App Service.</li>
+        </ul>
 
-    <h2>Service Principal:</h2>
-    <p><strong>Purpose:</strong></p>
-    <ul>
-        <li>Separate identity created for a specific application, service, or automation task.</li>
-        <li>Often used for non-Azure services and applications that need to authenticate against Azure services.</li>
-    </ul>
+        <p><strong>Automation:</strong></p>
+        <ul>
+            <li>Simplifies identity management by removing the need to rotate and manage credentials.</li>
+            <li>Well-suited for scenarios where you need to access other Azure resources securely without explicit
+                credential management.</li>
+        </ul>
 
-    <p><strong>Lifecycle:</strong></p>
-    <ul>
-        <li>Manually created and managed.</li>
-        <li>Can have a longer lifespan and is not directly tied to a specific Azure resource.</li>
-    </ul>
+        <p><strong>Usage:</strong></p>
+        <ul>
+            <li>Best suited for scenarios where Azure services need to authenticate to each other without involving a
+                separate identity service.</li>
+        </ul>
 
-    <p><strong>Automation:</strong></p>
-    <ul>
-        <li>Provides more control over the lifecycle, permissions, and roles associated with the identity.</li>
-        <li>Suitable for scenarios where more granular control over permissions and roles is required.</li>
-    </ul>
+        <h2>Service Principal:</h2>
+        <p><strong>Purpose:</strong></p>
+        <ul>
+            <li>Separate identity created for a specific application, service, or automation task.</li>
+            <li>Often used for non-Azure services and applications that need to authenticate against Azure services.
+            </li>
+        </ul>
 
-    <p><strong>Usage:</strong></p>
-    <ul>
-        <li>Commonly used for scenarios involving external applications, scripts, or automation tasks that need to interact with Azure services.</li>
-    </ul>
+        <p><strong>Lifecycle:</strong></p>
+        <ul>
+            <li>Manually created and managed.</li>
+            <li>Can have a longer lifespan and is not directly tied to a specific Azure resource.</li>
+        </ul>
 
-    <h2>Best Practices:</h2>
-    <p><strong>Managed Identity:</strong></p>
-    <ul>
-        <li>Use Managed Identity when dealing with resources within Azure services.</li>
-        <li>Ideal for scenarios where automatic lifecycle management of the identity is preferred.</li>
-        <li>Simplifies identity management, especially in a cloud-native environment.</li>
-    </ul>
+        <p><strong>Automation:</strong></p>
+        <ul>
+            <li>Provides more control over the lifecycle, permissions, and roles associated with the identity.</li>
+            <li>Suitable for scenarios where more granular control over permissions and roles is required.</li>
+        </ul>
 
-    <p><strong>Service Principal:</strong></p>
-    <ul>
-        <li>Use Service Principal when dealing with external applications or services.</li>
-        <li>Suitable for scenarios where more control over the identity, such as role assignments and permissions, is required.</li>
-        <li>Appropriate for hybrid scenarios where on-premises or non-Azure entities need to authenticate against Azure services.</li>
-    </ul>
+        <p><strong>Usage:</strong></p>
+        <ul>
+            <li>Commonly used for scenarios involving external applications, scripts, or automation tasks that need to
+                interact with Azure services.</li>
+        </ul>
 
-<h1>What is Nginx server</h1>
-<p class="big">
-<h1>Web Server:</h1>
-Nginx is often used as a standalone web server to serve static content like HTML, CSS, JavaScript, and images. Its event-driven architecture allows it to handle a large number of concurrent connections efficiently.
+        <h2>Best Practices:</h2>
+        <p><strong>Managed Identity:</strong></p>
+        <ul>
+            <li>Use Managed Identity when dealing with resources within Azure services.</li>
+            <li>Ideal for scenarios where automatic lifecycle management of the identity is preferred.</li>
+            <li>Simplifies identity management, especially in a cloud-native environment.</li>
+        </ul>
 
-<h1>Reverse Proxy:</h1>
-Nginx is commonly deployed as a reverse proxy in front of application servers (such as those running Node.js, Python, or Ruby applications). The reverse proxy forwards client requests to the backend servers and then returns the response to the clients. This helps in load balancing, caching, and enhancing security.
+        <p><strong>Service Principal:</strong></p>
+        <ul>
+            <li>Use Service Principal when dealing with external applications or services.</li>
+            <li>Suitable for scenarios where more control over the identity, such as role assignments and permissions,
+                is required.</li>
+            <li>Appropriate for hybrid scenarios where on-premises or non-Azure entities need to authenticate against
+                Azure services.</li>
+        </ul>
 
-<h1>Load Balancer:<h2>Continuous Integration (CI) in Azure DevOps:</h2>
-    <p><strong>Purpose:</strong> Continuous Integration involves automatically building and testing code whenever changes are committed to the version control system.</p>
-    <p><strong>Azure DevOps Services:</strong> In Azure DevOps, CI is achieved through the use of build pipelines. These pipelines automatically trigger when changes are pushed, ensuring code integrity.</p>
+        <h1>What is Nginx server</h1>
+        <p class="big">
+        <h1>Web Server:</h1>
+        Nginx is often used as a standalone web server to serve static content like HTML, CSS, JavaScript, and images.
+        Its event-driven architecture allows it to handle a large number of concurrent connections efficiently.
 
-    <h2>Continuous Deployment (CD) in Azure DevOps:</h2>
-    <p><strong>Purpose:</strong> Continuous Deployment automates the process of deploying code changes to different environments (e.g., development, testing, production).</p>
-    <p><strong>Azure DevOps Services:</strong> CD is implemented through release pipelines in Azure DevOps. These pipelines automate the deployment of artifacts to various environments, ensuring a consistent and reliable release process.</p>
-    <p><strong>Integration with CI:</strong> CD pipelines in Azure DevOps often integrate seamlessly with CI pipelines, allowing for a continuous flow from code changes to deployment without manual intervention.</p></h1>
-Nginx can distribute incoming network traffic across multiple servers to balance the load. This ensures that no single server becomes overwhelmed with too many requests, improving overall system performance, scalability, and reliability.
+        <h1>Reverse Proxy:</h1>
+        Nginx is commonly deployed as a reverse proxy in front of application servers (such as those running Node.js,
+        Python, or Ruby applications). The reverse proxy forwards client requests to the backend servers and then
+        returns the response to the clients. This helps in load balancing, caching, and enhancing security.
 
-<h1>SSL/TLS Termination:</h1>
-Nginx can handle SSL/TLS termination, decrypting encrypted HTTPS traffic and forwarding it as plain HTTP to backend servers. This offloads the SSL/TLS processing from the application servers, improving performance.
+        <h1>Load Balancer:<h2>Continuous Integration (CI) in Azure DevOps:</h2>
+            <p><strong>Purpose:</strong> Continuous Integration involves automatically building and testing code
+                whenever changes are committed to the version control system.</p>
+            <p><strong>Azure DevOps Services:</strong> In Azure DevOps, CI is achieved through the use of build
+                pipelines. These pipelines automatically trigger when changes are pushed, ensuring code integrity.</p>
 
-<h1>Caching:</h1>
-Nginx can cache static content and responses from dynamic content to improve performance and reduce the load on backend servers. This is particularly useful for serving frequently requested content quickly.
+            <h2>Continuous Deployment (CD) in Azure DevOps:</h2>
+            <p><strong>Purpose:</strong> Continuous Deployment automates the process of deploying code changes to
+                different environments (e.g., development, testing, production).</p>
+            <p><strong>Azure DevOps Services:</strong> CD is implemented through release pipelines in Azure DevOps.
+                These pipelines automate the deployment of artifacts to various environments, ensuring a consistent and
+                reliable release process.</p>
+            <p><strong>Integration with CI:</strong> CD pipelines in Azure DevOps often integrate seamlessly with CI
+                pipelines, allowing for a continuous flow from code changes to deployment without manual intervention.
+            </p>
+        </h1>
+        Nginx can distribute incoming network traffic across multiple servers to balance the load. This ensures that no
+        single server becomes overwhelmed with too many requests, improving overall system performance, scalability, and
+        reliability.
 
-<h1>Security Features:</h1>
-Nginx includes various security features, such as access controls, rate limiting, and the ability to hide server details from HTTP headers, which can enhance the security of web applications.
+        <h1>SSL/TLS Termination:</h1>
+        Nginx can handle SSL/TLS termination, decrypting encrypted HTTPS traffic and forwarding it as plain HTTP to
+        backend servers. This offloads the SSL/TLS processing from the application servers, improving performance.
 
-<h1>HTTP/2 and HTTP/3 Support:</h1>
-Nginx supports modern HTTP protocols like HTTP/2 and HTTP/3, providing improved performance and reduced latency compared to older versions.
+        <h1>Caching:</h1>
+        Nginx can cache static content and responses from dynamic content to improve performance and reduce the load on
+        backend servers. This is particularly useful for serving frequently requested content quickly.
 
-<h1>What is Ingress?</h1>
-<p>Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic routing is controlled by rules defined on the Ingress resource.</p>
-</p>
-</div>
-</section>
+        <h1>Security Features:</h1>
+        Nginx includes various security features, such as access controls, rate limiting, and the ability to hide server
+        details from HTTP headers, which can enhance the security of web applications.
+
+        <h1>HTTP/2 and HTTP/3 Support:</h1>
+        Nginx supports modern HTTP protocols like HTTP/2 and HTTP/3, providing improved performance and reduced latency
+        compared to older versions.
+
+        <h1>What is Ingress?</h1>
+        <p>Ingress exposes HTTP and HTTPS routes from outside the cluster to services within the cluster. Traffic
+            routing is controlled by rules defined on the Ingress resource.</p>
+        </p>
+        </div>
+    </section>
 </body>
 <footer>
-    <a href="./index.html">Home</a></footer>
+    <a href="./index.html">Home</a>
+</footer>
+
 </html>

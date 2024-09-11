@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,99 +37,105 @@
       background-color: #ddd;
       transition: background-color 0.3s;
     }
+
     nav a:hover {
       background-color: #bbb;
     }
+
     section {
       float: left;
       width: 80%;
       padding: 20px;
       box-sizing: border-box;
     }
+
     p {
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-</style>
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+  </style>
 </head>
+
 <body>
   <header>
     <h1>Cloud DevOps Engineer</h1>
   </header>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href ="./git.html">Git</a>
-        <a href="./azureDevOps.html">AzureDevOps</a> 
-        <a href="./aks.html">AKS</a> 
-        <a href="./azure.html">Azure</a> 
-        <a href="./terrafrom.html">Terrafrom</a> 
-        <a href="./script.html">Scripting</a>
-        <a href="./iqa.html">IQA</a>
-        <a href="./latest-iqa.html">Latest IQA</a>
-    
-      </nav>
-    
-      <section>
-      <h1>Concepts and Topics</h1>
-      <ol>
-        <li>Introduction to Terraform</li>
-        <li>Installation and Setup</li>
-        <li>Terraform Configuration Language (HCL)</li>
-        <li>Terraform CLI Commands</li>
-        <li>Providers</li>
-        <li>Resources</li>
-        <li>Data Sources</li>
-        <li>Variables and Outputs</li>
-        <li>Terraform State</li>
-        <li>Modules</li>
-        <li>Provisioners</li>
-        <li>Workspaces</li>
-        <li>Remote Backends</li>
-        <li>Terraform Cloud</li>
-        <li>Best Practices and Patterns</li>
-        <li>Terraform Modules and Registry</li>
-        <li>Continuous Integration/Continuous Deployment (CI/CD)</li>
-        <li>Security Considerations</li>
-        <li>Debugging and Troubleshooting</li>
-        <li>Case Studies and Real-world Examples</li>
-        <li>Upcoming Features and Changes</li>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="./git.html">Git</a>
+    <a href="./azureDevOps.html">AzureDevOps</a>
+    <a href="./aks.html">AKS</a>
+    <a href="./azure.html">Azure</a>
+    <a href="./terrafrom.html">Terrafrom</a>
+    <a href="./script.html">Scripting</a>
+    <a href="./iqa.html">IQA</a>
+    <a href="./latest-iqa.html">Latest IQA</a>
+
+  </nav>
+
+  <section>
+    <h1>Concepts and Topics</h1>
+    <ol>
+      <li>Introduction to Terraform</li>
+      <li>Installation and Setup</li>
+      <li>Terraform Configuration Language (HCL)</li>
+      <li>Terraform CLI Commands</li>
+      <li>Providers</li>
+      <li>Resources</li>
+      <li>Data Sources</li>
+      <li>Variables and Outputs</li>
+      <li>Terraform State</li>
+      <li>Modules</li>
+      <li>Provisioners</li>
+      <li>Workspaces</li>
+      <li>Remote Backends</li>
+      <li>Terraform Cloud</li>
+      <li>Best Practices and Patterns</li>
+      <li>Terraform Modules and Registry</li>
+      <li>Continuous Integration/Continuous Deployment (CI/CD)</li>
+      <li>Security Considerations</li>
+      <li>Debugging and Troubleshooting</li>
+      <li>Case Studies and Real-world Examples</li>
+      <li>Upcoming Features and Changes</li>
     </ol>
 
-      <h2 id="terrafrom">Terraform</h2>
-      <h1> What is terraform workspace?</h1>
+    <h2 id="terrafrom">Terraform</h2>
+    <h1> What is terraform workspace?</h1>
 
-      <p>
-        Definition: <br>
-        A workspace in Terraform Cloud or Terraform Enterprise is a way to organize and manage different instances of your infrastructure deployments.<br>
-        Purpose:<br>
-        Workspaces are often used to separate environments (e.g., development, staging, production) or different components of an infrastructure.
-</p>
-      
-      <p>For example, 
-       in the "dev" workspace: Set region to "us-west-2".<br>
-       In the "staging" workspace: Set region to "us-east-1".
-      </p>
+    <p>
+      Definition: <br>
+      A workspace in Terraform Cloud or Terraform Enterprise is a way to organize and manage different instances of your
+      infrastructure deployments.<br>
+      Purpose:<br>
+      Workspaces are often used to separate environments (e.g., development, staging, production) or different
+      components of an infrastructure.
+    </p>
 
-      <p>
+    <p>For example,
+      in the "dev" workspace: Set region to "us-west-2".<br>
+      In the "staging" workspace: Set region to "us-east-1".
+    </p>
+
+    <p>
       Terraform <a href="https://developer.hashicorp.com/terraform/language">Terraform documentation</a>
-       </p>
+    </p>
 
-       <p>
-        Provider
-        Resources
-        Data sources
-        Varaibles and Outputs
-        Modules
-        Imports
-        expression
-        Functions
-        State
-        Tests
-        
-       </p>
-       <p>
-        Terraform version v1.6
-<code>main.tf
+    <p>
+      Provider
+      Resources
+      Data sources
+      Varaibles and Outputs
+      Modules
+      Imports
+      expression
+      Functions
+      State
+      Tests
+
+    </p>
+    <p>
+      Terraform version v1.6
+      <code>main.tf
 outputs.tf
 providers.tf
 variables.tf
@@ -145,19 +152,22 @@ tests/
   maximums.tftest.hcl
   minimums.tftest.hcl</code>
 
-       </p>
+    </p>
 
-<h1> Terraform Concepts and instance creation</h1>
-<p>
-  <ol><li>
-  1.Resources
-  2.Data
-  3.Modules
-  4.Null Resources
- <br>
-  1.Locals---
-  2.Tags</li></ol>
-  <code>
+    <h1> Terraform Concepts and instance creation</h1>
+    <p>
+    <ol>
+      <li>
+        1.Resources
+        2.Data
+        3.Modules
+        4.Null Resources
+        <br>
+        1.Locals---
+        2.Tags
+      </li>
+    </ol>
+    <code>
     # 1. Resources
 resource "example_resource" "example" {
   name = "example-instance"
@@ -202,9 +212,11 @@ resource "example_resource_with_tags" "example" {
 
   </code>
 
-  <h1>What is null Resources</h1>
-  <p>In Terraform, the null_resource is a resource type that represents a resource that doesn't actually exist in any real infrastructure. It is often used as a placeholder to execute local provisioners or to create dependencies between resources</p>
-  <code>
+    <h1>What is null Resources</h1>
+    <p>In Terraform, the null_resource is a resource type that represents a resource that doesn't actually exist in any
+      real infrastructure. It is often used as a placeholder to execute local provisioners or to create dependencies
+      between resources</p>
+    <code>
     provider "azurerm" {
       features = {}
     }
@@ -259,21 +271,28 @@ resource "example_resource_with_tags" "example" {
     
   </code>
 
-<p>
- <ol>1.Resource Type: Changed resource "azureance" to resource "azurerm_virtual_machine" since you are working with Azure VM instances.<br>
+    <p>
+    <ol>1.Resource Type: Changed resource "azureance" to resource "azurerm_virtual_machine" since you are working with
+      Azure VM instances.<br>
 
-  2.Instance Configuration: Updated the instance configuration for Azure VMs (azurerm_virtual_machine) to match Azure resource naming conventions, including the definition of the VM name, resource group, location, etc.<br>
-  
-  3.Triggers and Connection Blocks: Updated references from azurtance to azurerm_virtual_machine for consistency. Also adjusted the connection block to use public_ip_address instead of public_ip.<br>
-  
-  4.Script Execution: Modified the provisioner "remote-exec" block to use azurerm_virtual_machine.cluster[*].private_ip_address for passing private IP addresses to the bootstrap script.</ol></p>
+      2.Instance Configuration: Updated the instance configuration for Azure VMs (azurerm_virtual_machine) to match
+      Azure resource naming conventions, including the definition of the VM name, resource group, location, etc.<br>
 
-</p>
-<p>
-  
-In Terraform, local variables work similarly for any cloud provider, including Azure. 
-You can define local variables in the same way, and they can be used to store values, expressions, or calculations for use within your Azure-specific Terraform configurations.
-<code>
+      3.Triggers and Connection Blocks: Updated references from azurtance to azurerm_virtual_machine for consistency.
+      Also adjusted the connection block to use public_ip_address instead of public_ip.<br>
+
+      4.Script Execution: Modified the provisioner "remote-exec" block to use
+      azurerm_virtual_machine.cluster[*].private_ip_address for passing private IP addresses to the bootstrap script.
+    </ol>
+    </p>
+
+    </p>
+    <p>
+
+      In Terraform, local variables work similarly for any cloud provider, including Azure.
+      You can define local variables in the same way, and they can be used to store values, expressions, or calculations
+      for use within your Azure-specific Terraform configurations.
+      <code>
   provider "azurerm" {
     features = {}
   }
@@ -310,10 +329,13 @@ You can define local variables in the same way, and they can be used to store va
   The output block demonstrates how you might use a local variable within an output  
   }
   </code>
-</p>
-<h2> what is state file and how to lock state file</h2>
-<p>In Azure, you can use Azure Storage as the backend for your Terraform state file, and you can enable state locking using Azure Storage's built-in locking mechanism. Azure Storage provides a service called Azure Blob Storage, and you can use a blob container with an associated Azure Storage Account for storing your Terraform state file.</p>
-<code>
+    </p>
+    <h2> what is state file and how to lock state file</h2>
+    <p>In Azure, you can use Azure Storage as the backend for your Terraform state file, and you can enable state
+      locking using Azure Storage's built-in locking mechanism. Azure Storage provides a service called Azure Blob
+      Storage, and you can use a blob container with an associated Azure Storage Account for storing your Terraform
+      state file.</p>
+    <code>
 <p></p>  
 1.Create an Azure Storage Account:
 
@@ -336,21 +358,23 @@ Update your Terraform configuration to use Azure Storage as the backend. Specify
   }
   
 </code>
-<h1>What is Meta-Arguments in terraform</h1>
+    <h1>What is Meta-Arguments in terraform</h1>
 
-  <b>Count:</b>
-  The count meta-argument is used to create multiple instances of a resource. It takes an integer value, and Terraform creates that many instances of the resource.
-  <br>
-  <code>
+    <b>Count:</b>
+    The count meta-argument is used to create multiple instances of a resource. It takes an integer value, and Terraform
+    creates that many instances of the resource.
+    <br>
+    <code>
   resource "aws_instance" "example" {
     count = 3
     ami   = "ami-0c55b159cbfafe1f0"
     instance_type = "t2.micro"
   </code>
- <br>
- <b>for_each:</b>   
- The for_each meta-argument is used to create multiple instances of a resource based on a map or set. It allows you to dynamically create resources based on the keys of a map or elements of a set.
-<code>
+    <br>
+    <b>for_each:</b>
+    The for_each meta-argument is used to create multiple instances of a resource based on a map or set. It allows you
+    to dynamically create resources based on the keys of a map or elements of a set.
+    <code>
   variable "instance_names" {
     type    = set(string)
     default = ["web", "app", "db"]
@@ -366,20 +390,22 @@ Update your Terraform configuration to use Azure Storage as the backend. Specify
   }
   </code>
 
-<br>
-<b>provider:</b>
- The provider meta-argument is used to specify a provider configuration for a resource. It allows you to select a specific provider configuration when using multiple providers in the same Terraform configuration.
- <br>
- <code>
+    <br>
+    <b>provider:</b>
+    The provider meta-argument is used to specify a provider configuration for a resource. It allows you to select a
+    specific provider configuration when using multiple providers in the same Terraform configuration.
+    <br>
+    <code>
  resource "aws_instance" "example" {
   provider = aws.us_west
   ami      = "ami-0c55b159cbfafe1f0"
   instance_type = "t2.micro"
 }
  </code>
-<h1>depends_on:</h1>
-<p>The depends_on meta-argument is used to explicitly specify the dependencies between resources. It forces Terraform to consider the specified dependencies when creating or updating resources</p>
-<code>
+    <h1>depends_on:</h1>
+    <p>The depends_on meta-argument is used to explicitly specify the dependencies between resources. It forces
+      Terraform to consider the specified dependencies when creating or updating resources</p>
+    <code>
   resource "aws_instance" "web" {
     ami             = "ami-0c55b159cbfafe1f0"
     instance_type   = "t2.micro"
@@ -391,5 +417,7 @@ Update your Terraform configuration to use Azure Storage as the backend. Specify
   }
   
 </code>
-      </section>
-      </body></html>
+  </section>
+</body>
+
+</html>

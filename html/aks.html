@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,81 +37,94 @@
       background-color: #ddd;
       transition: background-color 0.3s;
     }
+
     nav a:hover {
       background-color: #bbb;
     }
+
     section {
       float: left;
       width: 80%;
       padding: 20px;
       box-sizing: border-box;
     }
+
     p {
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-       .indent {
-            text-indent: 1.5em; /* You can adjust the indentation as needed */
-        }
-        code {
-            display: block;
-            white-space: pre-wrap;
-            background-color: #f4f4f4;
-            padding: 10px;
-            border: 1px solid #ddd;
-            margin-bottom: 20px;
-        }
-</style>
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+
+    .indent {
+      text-indent: 1.5em;
+      /* You can adjust the indentation as needed */
+    }
+
+    code {
+      display: block;
+      white-space: pre-wrap;
+      background-color: #f4f4f4;
+      padding: 10px;
+      border: 1px solid #ddd;
+      margin-bottom: 20px;
+    }
+  </style>
 </head>
-  <body>
-    <header>
-      <h1>Cloud DevOps Engineer</h1>
-    </header>
-    <nav>
-      <a href="index.html">Home</a>
-      <a href ="./git.html">Git</a>
-      <a href="./azureDevOps.html">Azure DevOps</a> 
-      <a href="./aks.html">AKS</a> 
-      <a href="./azure.html">Azure</a> 
-      <a href="./terrafrom.html">Terrafrom</a> 
-      <a href="./script.html">Scripting</a>
-      <a href="./iqa.html">IQA</a>
-      <a href="./latest-iqa.html">Latest IQA</a>
-   </nav>
+
+<body>
+  <header>
+    <h1>Cloud DevOps Engineer</h1>
+  </header>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="./git.html">Git</a>
+    <a href="./azureDevOps.html">Azure DevOps</a>
+    <a href="./aks.html">AKS</a>
+    <a href="./azure.html">Azure</a>
+    <a href="./terrafrom.html">Terrafrom</a>
+    <a href="./script.html">Scripting</a>
+    <a href="./iqa.html">IQA</a>
+    <a href="./latest-iqa.html">Latest IQA</a>
+  </nav>
   <section>
-  <h2 id="aks">AKS</h2>
-  <h1>1.What is Kubernetes?</h1>
-  Answer: Kubernetes is an open-source container orchestration platform for automating the deployment, scaling, and management of containerized applications.
-  <h1>2.Explain the key components of Kubernetes architecture.</h1>
-  <p><strong>Key components include:</strong></p>
-<ul>
-  <li><strong>Master Node:</strong> Manages and controls the cluster.</li>
-  <li><strong>Node/Minion:</strong> Worker machines where containers are deployed.</li>
-  <li><strong>Pod:</strong> Smallest deployable unit, containing one or more containers.</li>
-  <li><strong>Service:</strong> Network abstraction to expose a set of pods.</li>
-  <li><strong>ReplicaSet:</strong> Ensures a specified number of replicas for a pod are running.</li>
-  <li><strong>Deployment:</strong> Manages updates to applications.</li>
-</ul>
+    <h2 id="aks">AKS</h2>
+    <h1>1.What is Kubernetes?</h1>
+    Answer: Kubernetes is an open-source container orchestration platform for automating the deployment, scaling, and
+    management of containerized applications.
+    <h1>2.Explain the key components of Kubernetes architecture.</h1>
+    <p><strong>Key components include:</strong></p>
+    <ul>
+      <li><strong>Master Node:</strong> Manages and controls the cluster.</li>
+      <li><strong>Node/Minion:</strong> Worker machines where containers are deployed.</li>
+      <li><strong>Pod:</strong> Smallest deployable unit, containing one or more containers.</li>
+      <li><strong>Service:</strong> Network abstraction to expose a set of pods.</li>
+      <li><strong>ReplicaSet:</strong> Ensures a specified number of replicas for a pod are running.</li>
+      <li><strong>Deployment:</strong> Manages updates to applications.</li>
+    </ul>
 
-<h1>3.What is a Deployment in Kubernetes?</h1>
+    <h1>3.What is a Deployment in Kubernetes?</h1>
 
-<p>Answer: A Deployment is a resource object in Kubernetes that provides declarative updates to applications. It allows you to describe an application’s life cycle, such as which images to use for the app, the number of pod replicas, and the way to update them.</p>
+    <p>Answer: A Deployment is a resource object in Kubernetes that provides declarative updates to applications. It
+      allows you to describe an application’s life cycle, such as which images to use for the app, the number of pod
+      replicas, and the way to update them.</p>
 
-<h1>4.How can you scale a deployment in Kubernetes?</h1>
+    <h1>4.How can you scale a deployment in Kubernetes?</h1>
 
-<p>Answer: Use the kubectl scale command or update the replicas field in the Deployment YAML file.</p>
+    <p>Answer: Use the kubectl scale command or update the replicas field in the Deployment YAML file.</p>
 
-<h1>5.What is a Pod in Kubernetes?</h1>
+    <h1>5.What is a Pod in Kubernetes?</h1>
 
-<p>Answer: A Pod is the smallest and simplest unit in the Kubernetes object model, representing a single instance of a running process in a cluster.</p>
-<h1>6.How are Pods different from containers?</h1>
+    <p>Answer: A Pod is the smallest and simplest unit in the Kubernetes object model, representing a single instance of
+      a running process in a cluster.</p>
+    <h1>6.How are Pods different from containers?</h1>
 
-<p>Answer: A Pod can host multiple containers that share the same network namespace and can communicate with each other using localhost</p>
+    <p>Answer: A Pod can host multiple containers that share the same network namespace and can communicate with each
+      other using localhost</p>
 
-<h1>How to communicate from a specific pod to a specific service in AKS</h1>
+    <h1>How to communicate from a specific pod to a specific service in AKS</h1>
 
-  <p>Define a Kubernetes Service manifest that specifies the service type, ports, and selectors. The selectors determine which pods will be part of the service</p>
-  <code> apiVersion: v1
+    <p>Define a Kubernetes Service manifest that specifies the service type, ports, and selectors. The selectors
+      determine which pods will be part of the service</p>
+    <code> apiVersion: v1
 kind: Service
 metadata:
   name: my-service
@@ -142,20 +156,17 @@ spec:
             - containerPort: 8080
 
 </code>
-<h1> build got success but image tag not updated</h1>
-<p>Check Image Pull Policy:
-  Ensure that your image pull policy is set correctly. 
-  If you are using an image pull policy of IfNotPresent or Never, it might prevent the deployment from fetching the latest image. Consider using the default Always pull policy.</p>
-  
-  <br><br>
+    <h1> build got success but image tag not updated</h1>
+    <p>Check Image Pull Policy:
+      Ensure that your image pull policy is set correctly.
+      If you are using an image pull policy of IfNotPresent or Never, it might prevent the deployment from fetching the
+      latest image. Consider using the default Always pull policy.</p>
 
-<iframe
+    <br><br>
 
-  src="./pipelineMagic/documents\pdf\Module 9_kubernetes.pdf"
-  type="application/pdf"
-  height="100%"
-  width="100%"
->pdf</iframe>
-</section> 
+    <iframe src="./pipelineMagic/documents\pdf\Module 9_kubernetes.pdf" type="application/pdf" height="100%"
+      width="100%">pdf</iframe>
+  </section>
 </body>
- </html>
+
+</html>

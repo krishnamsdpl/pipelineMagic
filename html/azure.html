@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -36,140 +37,168 @@
       background-color: #ddd;
       transition: background-color 0.3s;
     }
+
     nav a:hover {
       background-color: #bbb;
     }
+
     section {
       float: left;
       width: 80%;
       padding: 20px;
       box-sizing: border-box;
     }
+
     p {
-            margin-bottom: 15px;
-            line-height: 1.5;
-        }
-</style>
+      margin-bottom: 15px;
+      line-height: 1.5;
+    }
+  </style>
 </head>
+
 <body>
   <header>
     <h1>Cloud DevOps Engineer</h1>
   </header>
-      <nav>
-        <a href="index.html">Home</a>
-        <a href ="./git.html">Git</a>
-        <a href="./azureDevOps.html">Azure DevOps</a> 
-        <a href="./aks.html">AKS</a> 
-        <a href="./azure.html">Azure</a> 
-        <a href="./terrafrom.html">Terrafrom</a> 
-        <a href="./script.html">Scripting</a>
-        <a href="./iqa.html">IQA</a>
-        <a href="./latest-iqa.html">Latest IQA</a>
-          
-      </nav>
-    
-      <section>
-        <h1>Azure Resources Overview</h1>
+  <nav>
+    <a href="index.html">Home</a>
+    <a href="./git.html">Git</a>
+    <a href="./azureDevOps.html">Azure DevOps</a>
+    <a href="./aks.html">AKS</a>
+    <a href="./azure.html">Azure</a>
+    <a href="./terrafrom.html">Terrafrom</a>
+    <a href="./script.html">Scripting</a>
+    <a href="./iqa.html">IQA</a>
+    <a href="./latest-iqa.html">Latest IQA</a>
+
+  </nav>
+
+  <section>
+    <h1>Azure Resources Overview</h1>
+    <ol>
+      <li>Virtual Machine (Need to create VM manually)</li>
+      <li>Resource Groups</li>
+      <li>Virtual Networks (poc-rmg-ne-dst-poc-vn-01)
         <ol>
-            <li>Virtual Machine (Need to create VM manually)</li>
-            <li>Resource Groups</li>
-            <li>Virtual Networks (poc-rmg-ne-dst-poc-vn-01)
-                <ol>
-                    <li>Subnet (Need to create ACI, AKS, VM, DB)
-                        <ul>
-                            <li>Subnet-NAT (Gateway, Network Security, Route Table)</li>
-                        </ul>
-                    </li>
-                </ol>
-            </li>
-            <li>Kubernetes Services - Cluster Creation</li>
-            <li>Container Instances (ACR)</li>
-            <li>Key Vault</li>
+          <li>Subnet (Need to create ACI, AKS, VM, DB)
+            <ul>
+              <li>Subnet-NAT (Gateway, Network Security, Route Table)</li>
+            </ul>
+          </li>
         </ol>
-      <ol>
+      </li>
+      <li>Kubernetes Services - Cluster Creation</li>
+      <li>Container Instances (ACR)</li>
+      <li>Key Vault</li>
+    </ol>
+    <ol>
 
       <h2>Traffic Management</h2>
       <h1>1.Azure Traffic Manager:</h1>
       <h1>2.Azure Application Gateway</h1>
-      <h1>3.Azure Load Balancer:</h1></h1>
-      <h1>4.front door</h1> 
-        
-      <h1>1.What is Azure Application Gateway?</h1> 
-     <p>
-        Azure Application Gateway is a web traffic (OSI layer 7) load balancer that enables you to manage traffic to your web applications. <br>
-        Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on source IP address and port, 
+      <h1>3.Azure Load Balancer:</h1>
+      </h1>
+      <h1>4.front door</h1>
+
+      <h1>1.What is Azure Application Gateway?</h1>
+      <p>
+        Azure Application Gateway is a web traffic (OSI layer 7) load balancer that enables you to manage traffic to
+        your web applications. <br>
+        Traditional load balancers operate at the transport layer (OSI layer 4 - TCP and UDP) and route traffic based on
+        source IP address and port,
         to a destination IP address and port.<br>
-        Application Gateway can make routing decisions based on additional attributes of an HTTP request, for example URI path or host headers. <br>
+        Application Gateway can make routing decisions based on additional attributes of an HTTP request, for example
+        URI path or host headers. <br>
         For example, you can route traffic based on the incoming URL
-        
+
         <br><br>
         <a href="https://learn.microsoft.com/en-us/azure/application-gateway/overview">Application getway</a><br><br>
-        <a href="https://learn.microsoft.com/en-us/azure/application-gateway/create-multiple-sites-portal">single site Application Gateway</a><br><br>
-        <a href="https://learn.microsoft.com/en-us/azure/application-gateway/multiple-site-overview">multiple site Application gateway</a>
-    </p>
+        <a href="https://learn.microsoft.com/en-us/azure/application-gateway/create-multiple-sites-portal">single site
+          Application Gateway</a><br><br>
+        <a href="https://learn.microsoft.com/en-us/azure/application-gateway/multiple-site-overview">multiple site
+          Application gateway</a>
+      </p>
 
-    <h1>What is Azure Load Balancer?</h1>
-    <p>
-<a href="https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview">Load Balancer</a> <br><br>       
-Load balancing refers to efficiently distributing incoming network traffic across a group of backend servers or resources.<br>
+      <h1>What is Azure Load Balancer?</h1>
+      <p>
+        <a href="https://learn.microsoft.com/en-us/azure/load-balancer/load-balancer-overview">Load Balancer</a>
+        <br><br>
+        Load balancing refers to efficiently distributing incoming network traffic across a group of backend servers or
+        resources.<br>
 
-Azure Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. It's the single point of contact for clients.<br>
-Load balancer distributes inbound flows that arrive at the load balancer's front end to backend pool instances. <br>
-These flows are according to configured load-balancing rules and health probes. <br>
-The backend pool instances can be Azure Virtual Machines or instances in a Virtual Machine Scale Set.<br>
-<br>
-A <b>public load balancer</b> can provide outbound connections for virtual machines (VMs) inside your virtual network. <br>
-These connections are accomplished by translating their private IP addresses to public IP addresses. <br>
-Public Load Balancers are used to load balance internet traffic to your VMs.<br>
-<br>
-An <b>internal (or private) load balancer</b> is used where private IPs are needed at the frontend only. <br>
-Internal load balancers are used to load balance traffic inside a virtual network.<br>
-A load balancer frontend can be accessed from an on-premises network in a hybrid scenario.
- </p>
+        Azure Load Balancer operates at layer 4 of the Open Systems Interconnection (OSI) model. It's the single point
+        of contact for clients.<br>
+        Load balancer distributes inbound flows that arrive at the load balancer's front end to backend pool instances.
+        <br>
+        These flows are according to configured load-balancing rules and health probes. <br>
+        The backend pool instances can be Azure Virtual Machines or instances in a Virtual Machine Scale Set.<br>
+        <br>
+        A <b>public load balancer</b> can provide outbound connections for virtual machines (VMs) inside your virtual
+        network. <br>
+        These connections are accomplished by translating their private IP addresses to public IP addresses. <br>
+        Public Load Balancers are used to load balance internet traffic to your VMs.<br>
+        <br>
+        An <b>internal (or private) load balancer</b> is used where private IPs are needed at the frontend only. <br>
+        Internal load balancers are used to load balance traffic inside a virtual network.<br>
+        A load balancer frontend can be accessed from an on-premises network in a hybrid scenario.
+      </p>
 
- <p>
-<h1>What is difference b/w Load-balancer,Application Gateway and Traffic Manager</h1>
-<img src=".\images\LAT.png"  width="600" height="600">
+      <p>
+      <h1>What is difference b/w Load-balancer,Application Gateway and Traffic Manager</h1>
+      <img src=".\images\LAT.png" width="600" height="600">
 
-<h1>What is Virtual network peering</h1>
-<p>
-Virtual network peering enables you to seamlessly connect two or more<a href="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview"> Virtual Networks </a>in Azure. <br>
-The virtual networks appear as one for connectivity purposes. <br>
-The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. <br>
-Like traffic between virtual machines in the same network, traffic is routed through Microsoft's private network only.<br><br>
+      <h1>What is Virtual network peering</h1>
+      <p>
+        Virtual network peering enables you to seamlessly connect two or more<a
+          href="https://learn.microsoft.com/en-us/azure/virtual-network/virtual-networks-overview"> Virtual Networks
+        </a>in Azure. <br>
+        The virtual networks appear as one for connectivity purposes. <br>
+        The traffic between virtual machines in peered virtual networks uses the Microsoft backbone infrastructure. <br>
+        Like traffic between virtual machines in the same network, traffic is routed through Microsoft's private network
+        only.<br><br>
 
-<a href="https://k21academy.com/microsoft-azure/az-303/azure-vnet-peering/">Vnet peering</a>
-</p>
+        <a href="https://k21academy.com/microsoft-azure/az-303/azure-vnet-peering/">Vnet peering</a>
+      </p>
 
-<p>
-  1.	Private IP Address: When you create a private endpoint for a service, it is assigned a private IP address from your virtual network's address space. You can then use this private IP address to connect to the service.<br><br>
-  2.	Service Access via DNS Name: Even though the private endpoint is associated with a private IP address, you can still access the Azure service using its regular DNS name. Azure's internal DNS resolves the service's DNS name to the private IP address when accessed from the virtual network.<br><br>
-  3.	Network Security Group (NSG) Integration: Private endpoints integrate with Azure Network Security Groups (NSGs), allowing you to control inbound and outbound traffic to the service. You can apply NSG rules to restrict or allow traffic based on your security requirements.
-  
-</p>
-<p>What is Peering in Azure</p>
-<h1>reverting head origin</h1>
-<h1>What is Azure container instances(ACI)</h1>
-  <p>Azure Container Instances (ACI) is a serverless container service provided by Microsoft Azure. 
-     It allows you to run containers on-demand without managing the underlying infrastructure.
-     ACI is suitable for scenarios where you need a lightweight and simple container orchestration solution without the complexity of managing a full-fledged container orchestration platform like Kubernetes.</p>
+      <p>
+        1. Private IP Address: When you create a private endpoint for a service, it is assigned a private IP address
+        from your virtual network's address space. You can then use this private IP address to connect to the
+        service.<br><br>
+        2. Service Access via DNS Name: Even though the private endpoint is associated with a private IP address, you
+        can still access the Azure service using its regular DNS name. Azure's internal DNS resolves the service's DNS
+        name to the private IP address when accessed from the virtual network.<br><br>
+        3. Network Security Group (NSG) Integration: Private endpoints integrate with Azure Network Security Groups
+        (NSGs), allowing you to control inbound and outbound traffic to the service. You can apply NSG rules to restrict
+        or allow traffic based on your security requirements.
 
-     <p>
-      <b>No Cluster Management:</b><br>
+      </p>
+      <p>What is Peering in Azure</p>
+      <h1>reverting head origin</h1>
+      <h1>What is Azure container instances(ACI)</h1>
+      <p>Azure Container Instances (ACI) is a serverless container service provided by Microsoft Azure.
+        It allows you to run containers on-demand without managing the underlying infrastructure.
+        ACI is suitable for scenarios where you need a lightweight and simple container orchestration solution without
+        the complexity of managing a full-fledged container orchestration platform like Kubernetes.</p>
 
-      ACI abstracts away the need for managing container orchestration clusters. You only pay for the containers you run.
-      
-      <br><b>Rapid Deployment:</b><br>
-      
-      Containers can be deployed in seconds, making ACI suitable for burst workloads, one-time jobs, or applications with varying workloads.
-      
-      <br><b>Multiple Container Types:</b><br>
-      
-      ACI supports both Linux and Windows containers, allowing flexibility in your choice of operating system.
-      
-      <br><b>Elastic Scalability:</b><br>
-      
-      Easily scale your applications up or down by adjusting the number of container instances.</p>
+      <p>
+        <b>No Cluster Management:</b><br>
+
+        ACI abstracts away the need for managing container orchestration clusters. You only pay for the containers you
+        run.
+
+        <br><b>Rapid Deployment:</b><br>
+
+        Containers can be deployed in seconds, making ACI suitable for burst workloads, one-time jobs, or applications
+        with varying workloads.
+
+        <br><b>Multiple Container Types:</b><br>
+
+        ACI supports both Linux and Windows containers, allowing flexibility in your choice of operating system.
+
+        <br><b>Elastic Scalability:</b><br>
+
+        Easily scale your applications up or down by adjusting the number of container instances.
+      </p>
       <code>
         Example: Deploying a Container in Azure Container Instances
          1.Create a Resource Group:
@@ -180,24 +209,32 @@ Like traffic between virtual machines in the same network, traffic is routed thr
 
       </code>
       <h1>How to Create and modify an ExpressRoute circuit</h1>
-      <a href="https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-circuit-portal-resource-manager">ExpressRoute</a>
-    
-    <h1>What is  Microsoft Azure, availability zones and regions are concepts related to providing high availability and fault tolerance for your applications and services</h1>
-    <p>
-     <b> Region:</b>
-A region in Azure is a set of datacenters deployed within a defined geographic area. 
-Each region is essentially an independent datacenter with its own power, cooling, and networking.
-Azure regions are distributed around the world, and Microsoft continues to expand its datacenter footprint.
-Examples of <b>Azure regions include East US, West Europe, Southeast Asia, etc.</b>
-Deploying resources across multiple regions helps protect against regional outages and provides geographic redundancy.
-<b>Availability Zone:</b>
-<p>An availability zone is a physically separate datacenter within an Azure region. 
-  Each zone is designed to be an isolated failure domain with its own power, cooling, and networking.
-  Azure regions that support availability zones are divided into three zones, labeled as Zone 1, Zone 2, and Zone 3. Each zone is essentially a separate datacenter, and they are located a reasonable distance apart within the same region.
-  Deploying resources across availability zones helps protect against datacenter failures and provides high availability within a region.</p>
-   
-</section>
+      <a
+        href="https://learn.microsoft.com/en-us/azure/expressroute/expressroute-howto-circuit-portal-resource-manager">ExpressRoute</a>
+
+      <h1>What is Microsoft Azure, availability zones and regions are concepts related to providing high availability
+        and fault tolerance for your applications and services</h1>
+      <p>
+        <b> Region:</b>
+        A region in Azure is a set of datacenters deployed within a defined geographic area.
+        Each region is essentially an independent datacenter with its own power, cooling, and networking.
+        Azure regions are distributed around the world, and Microsoft continues to expand its datacenter footprint.
+        Examples of <b>Azure regions include East US, West Europe, Southeast Asia, etc.</b>
+        Deploying resources across multiple regions helps protect against regional outages and provides geographic
+        redundancy.
+        <b>Availability Zone:</b>
+      <p>An availability zone is a physically separate datacenter within an Azure region.
+        Each zone is designed to be an isolated failure domain with its own power, cooling, and networking.
+        Azure regions that support availability zones are divided into three zones, labeled as Zone 1, Zone 2, and Zone
+        3. Each zone is essentially a separate datacenter, and they are located a reasonable distance apart within the
+        same region.
+        Deploying resources across availability zones helps protect against datacenter failures and provides high
+        availability within a region.</p>
+
+  </section>
 </body>
-<footer>  
-    <a href="./index.html">Home</a></footer>
+<footer>
+  <a href="./index.html">Home</a>
+</footer>
+
 </html>
