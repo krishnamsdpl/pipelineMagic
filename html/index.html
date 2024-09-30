@@ -11,7 +11,18 @@
       margin: 0;
       padding: 0;
     }
-
+    body {
+               font-family: Arial, sans-serif;
+               line-height: 1.6;
+               margin: 20px;
+           }
+           h1, h2, h3 {
+               color: #2c3e50;
+           }
+           ul {
+               margin: 10px 0;
+               padding-left: 20px;
+           }     
     header {
       background-color: #333;
       color: white;
@@ -55,16 +66,17 @@
       display: table;
       clear: both;
     }
+
   </style>
-</head>
+ </head>
 
 <body>
-
+ 
   <header>
     <h1>Cloud DevOps Engineer</h1>
   </header>
 
-  <div class="clearfix">
+  
     <nav>
       <a href="./index.html">Home</a>
       <a href="./git.html">Git</a>
@@ -76,26 +88,217 @@
       <a href="./iqa.html">IQA</a>
       <a href="./latest-iqa.html">Latest IQA</a>
     </nav>
-
     <section>
-      <h2 id="azureDevOps">Azure DevOps</h2>
-      <p>This section covers Azure DevOps, including build and release pipelines.</p>
-
-      <h2 id="aks">AKS</h2>
-      <p>This section covers configuring applications for deployment in Azure Kubernetes Service (AKS).</p>
-
-      <h2 id="terraform">Terraform</h2>
-      <p>This section covers Terraform commands and how to execute files like main.tf and variable.tf, as well as
-        managing state files.</p>
-
-      <h2 id="scripting">Scripting</h2>
-      <p>This section covers scripting languages such as Bash and PowerShell.</p>
-
-      <h2 id="iqa">IQA</h2>
-      <p>This section covers Information Quality Assurance (IQA) from previous standards.</p>
-    </section>
-  </div>
-
-</body>
-
-</html>
+       <h2>Introduction of DevOps</h2>
+    <ul>
+        <li>Understanding DevOps Notation</li>
+        <li>History of DevOps</li>
+        <li>Understanding different DevOps methodology
+            <ul>
+                <li>Agile</li>
+                <li>Scrum</li>
+                <li>Waterfall Model</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <h2>Azure DevOps Introduction</h2>
+    <ul>
+        <li>Understanding various Azure DevOps Services</li>
+        <li>Setting up Azure DevOps free tier account</li>
+        <li>Azure Project creation</li>
+        <li>Understanding Azure DevOps Overview TAB</li>
+        <li>Scenario-based interview question and solution</li>
+    </ul>
+    
+    <h2>Azure Work Item Management</h2>
+    <ul>
+        <li>Understanding Azure DevOps Boards</li>
+        <li>Work item creation</li>
+        <li>Backup and migration of work items</li>
+        <li>Setting up iteration and path</li>
+        <li>Customization Boards view</li>
+    </ul>
+    
+    <h2>Repository Management</h2>
+    <ul>
+        <li>Introduction to Repository Management</li>
+        <li>Centralized version control</li>
+        <li>Distributed version control</li>
+        <li>Understanding various stages of GIT</li>
+        <li>Running through basic commands</li>
+        <li>Understanding Advanced GIT Concepts
+            <ul>
+                <li>Cherry-picking</li>
+                <li>Rebase</li>
+                <li>Stash etc.</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <h2>GIT Security</h2>
+    <ul>
+        <li>Talisman (GIT Hooks):
+            <ul>
+                <li>Introduction to GIT Hooks</li>
+                <li>Understanding Pre-commit and pre-push hooks</li>
+                <li>Integration Talisman on developer’s workstation</li>
+                <li>Analyzing Talisman reports and ways to ignore contents</li>
+            </ul>
+        </li>
+    </ul>
+    
+    <h2>Azure Repo</h2>
+    <ul>
+        <li>Introduction to Azure Repos</li>
+        <li>Multi-branch creation in Azure Repos</li>
+        <li>Different ways to clone azure repository</li>
+        <li>Difference between clone and fork</li>
+        <li>Understanding commit history and graphs</li>
+        <li>Understanding various Azure functionalities like pull requests, cherry-picking, revert</li>
+        <li>Understanding Advanced Pull Request concepts
+            <ul>
+                <li>Merge</li>
+                <li>Squash</li>
+                <li>Rebase etc.</li>
+            </ul>
+        </li>
+        <li>Tag creation in Azure Repos</li>
+        <li>Azure Repos security and policies</li>
+        <li>Scenario-based Interview Question with Solutions</li>
+    </ul>
+    
+    <h2>Azure Service Connection</h2>
+    <ul>
+        <li>Introduction to Azure Service connections</li>
+        <li>Understanding service principal concept</li>
+        <li>Service connection creation</li>
+    </ul>
+    
+    <h2>Azure Agent Pools</h2>
+    <ul>
+        <li>Introduction to Agent pools</li>
+        <li>Hosted vs Self-Hosted Pools</li>
+        <li>Self-Hosted agent pool creation</li>
+        <li>Integration of self-hosted agent pool with release pipelines</li>
+    </ul>
+    
+    <h2>Yaml</h2>
+    <ul>
+        <li>YAML Basic Syntax</li>
+        <li>Data Types supported by YAML</li>
+        <li>A Format and indentation of YAML</li>
+    </ul>
+    
+    <h2>Azure Pipelines</h2>
+    <ul>
+        <li>Build Pipelines</li>
+        <li>Understanding continuous integration concepts</li>
+        <li>Introduction to build process</li>
+        <li>Project(1) – creation of ASP.NET Web application</li>
+        <li>Classic build pipeline creation for ASP.NET application</li>
+        <li>YAML build pipeline creation for ASP.NET application</li>
+        <li>Different types of build triggers</li>
+        <li>Pipelines custom variables</li>
+        <li>Branch and Path filtration</li>
+        <li>Understanding Pre-defined variables</li>
+        <li>Project(2) – Introduction to Java Spring boot web application</li>
+        <li>YAML build Pipeline creation for JAVA web application</li>
+        <li>Project(3) – Introduction to SQL database automation</li>
+        <li>Creation of SQL Database dacpac project</li>
+        <li>YAML build Pipeline creation of SQL database project</li>
+        <li>Deployment Groups</li>
+        <li>Environments</li>
+        <li>Pipeline Library</li>
+        <li>Task Groups</li>
+        <li>Scenario-based Interview Question with solution</li>
+    </ul>
+    
+    <h2>Release Pipelines</h2>
+    <ul>
+        <li>Understanding Continuous Deployment and Delivery concepts</li>
+        <li>Introduction to the release process</li>
+        <li>Classic release pipeline creation to deploy ASP.NET web Application</li>
+        <li>Multi-Stage deployment Pipeline creation</li>
+        <li>YAML release Pipeline creation to deploy JAVA Web Application</li>
+        <li>Integration of JUNIT analysis with JAVA build pipelines</li>
+        <li>Classic release pipelines creation to deploy SQL DACPAC packages</li>
+        <li>Deployment Strategies in Azure DevOps</li>
+        <li>Scenario-based Interview Question with Solution</li>
+    </ul>
+    
+    <h2>Maven</h2>
+    <ul>
+        <li>Introduction to Maven build tools</li>
+        <li>Maven benefits over others Grandle, Ant</li>
+        <li>Maven commands</li>
+        <li>Integration of Maven with JAVA spring boot build pipelines</li>
+    </ul>
+    
+    <h2>Build Pipeline Security: SonarQube (SAST)</h2>
+    <ul>
+        <li>Introduction to SonarQube</li>
+        <li>Setting up SonarQube in Docker container</li>
+        <li>Downloading SonarQube plugins in Azure DevOps</li>
+        <li>Creation of Service connection to connect Sonar Server</li>
+        <li>Creation of New Project in SonarQube</li>
+        <li>Integration of Sonar Analysis with Java Build pipelines</li>
+        <li>Understanding publish gates and publish profiles</li>
+        <li>Creation of custom publish gates</li>
+        <li>Introduction custom publish gates in build pipelines</li>
+        <li>Adding Sonar Break task</li>
+        <li>Analyzing Sonar Build reports</li>
+    </ul>
+    
+    <h2>Azure Artifacts</h2>
+    <ul>
+        <li>Introduction to Azure Artifacts</li>
+        <li>Creation of Private feeds</li>
+        <li>Integration of Private feeds in build pipelines</li>
+        <li>Packaging and push the dependency in private feeds</li>
+    </ul>
+    
+    <h2>Azure Setting</h2>
+    <ul>
+        <li>Introduction to Organization and Project settings</li>
+        <li>Azure Active Directory Integration with DevOps</li>
+        <li>Azure Permission</li>
+        <li>User and Group management</li>
+        <li>Retention and storage policies</li>
+    </ul>
+    
+    <h2>Docker</h2>
+    <ul>
+        <li>Docker Engine Installation</li>
+        <li>Manual deployment of Docker CE on Ubuntu and CentOS</li>
+        <li>Automate deployment with help of Vagrant</li>
+        <li>Basic introduction to Docker Engine</li>
+        <li>Different between Desktop and Server</li>
+        <li>Version check</li>
+        <li>Default locations</li>
+        <li>Commands execution</li>
+        <li>Docker architecture
+            <ul>
+                <li>Docker daemon</li>
+                <li>Docker client</li>
+                <li>Docker registry</li>
+                <li>Docker objects
+                    <ul>
+                        <li>Images</li>
+                        <li>Containers</li>
+                        <li>Networking</li>
+                        <li>Services</li>
+                    </ul>
+                </li>
+            </ul>
+        </li>
+        <li>Images and container management
+            <ul>
+                <li>Docker image registries</li>
+                <li>Docker image pull/push</li>
+                <li>Container creation</li>
+                <li>Sample application deployment like web server</li>
+            </ul>
+           </li>
+           </ul></section>
+    </body></html>
